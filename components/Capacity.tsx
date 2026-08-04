@@ -1,0 +1,45 @@
+import Image from "next/image";
+
+const specs = [
+  { label: "Расположение", value: "г. Астана, Сокпакбаева 20/2" },
+  { label: "Продуктовая линейка", value: "12 позиций" },
+  { label: "Форматы фасовки", value: "1 л / 5 кг / 20 кг" },
+  { label: "Разведение концентратов", value: "до 1:200" },
+  { label: "Отгрузка", value: "со склада производителя" },
+];
+
+export default function Capacity() {
+  return (
+    <section id="production" className="border-b border-line">
+      <div className="mx-auto grid max-w-[85rem] grid-cols-1 lg:grid-cols-2">
+        <Image
+          src="/photos/production.jpg"
+          alt="Производственный цех Astana Soap Factory — линия розлива автохимии"
+          width={1024}
+          height={559}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="h-auto w-full self-center"
+        />
+        <div className="bg-cream px-4 py-12 sm:px-10 lg:py-16">
+          <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            ПРОИЗВОДСТВО
+          </h2>
+          <p className="mt-4 max-w-md text-[16px] leading-relaxed text-muted">
+            Собственная площадка. Полный цикл — от разработки формулы до
+            фасовки. Готовы производить под ваш объём.
+          </p>
+          <table className="mt-8 w-full text-[15px]">
+            <tbody>
+              {specs.map((s) => (
+                <tr key={s.label} className="border-t border-ink/10 last:border-b">
+                  <td className="py-4 pr-4 text-muted">{s.label}</td>
+                  <td className="py-4 text-right font-bold">{s.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
+}

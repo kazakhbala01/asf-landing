@@ -1,0 +1,118 @@
+import Image from "next/image";
+import Canister from "./Canister";
+import { categories, products, type Product } from "@/lib/products";
+
+function ProductCard({ product }: { product: Product }) {
+  return (
+    <article
+      id={product.id}
+      className="flex scroll-mt-24 flex-col border border-line bg-paper transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
+    >
+      <div className="flex items-center justify-center border-b border-line bg-soft py-8">
+        <Canister
+          name={product.name.replace("ASF ", "")}
+          accent={product.accent}
+          sub={product.nameRu ?? "Professional"}
+          className="h-52 w-40"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-[17px] font-bold uppercase leading-tight tracking-wide">
+            {product.name}
+          </h3>
+          {product.bestseller && (
+            <span className="shrink-0 bg-amber px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase text-ink">
+              Хит
+            </span>
+          )}
+        </div>
+        {product.nameRu && (
+          <p className="mt-0.5 text-[11px] font-semibold tracking-caps uppercase text-muted">
+            {product.nameRu}
+          </p>
+        )}
+        <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">
+          {product.description}
+        </p>
+
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {product.volumes.map((v) => (
+            <span
+              key={v}
+              className="border border-line px-3 py-1.5 text-[13px] font-semibold"
+            >
+              {v}
+            </span>
+          ))}
+        </div>
+
+        <table className="mt-4 w-full border-t border-line text-[13.5px]">
+          <caption className="pb-1.5 pt-3 text-left text-[10px] font-bold tracking-caps uppercase text-muted">
+            Нормы разведения
+          </caption>
+          <tbody>
+            {product.dilutions.map((d) => (
+              <tr key={d.method} className="border-b border-line last:border-0">
+                <td className="py-1.5 pr-2 text-muted">{d.method}</td>
+                <td className="py-1.5 text-right font-bold tabular-nums">{d.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  );
+}
+
+export default function Products() {
+  return (
+    <section id="products" className="border-b border-line">
+      <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-20">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-0.5 w-8 bg-amber" />
+              <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
+                Каталог
+              </span>
+            </div>
+            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              НАША ПРОДУКЦИЯ
+            </h2>
+          </div>
+          <p className="max-w-sm text-[16px] leading-relaxed text-muted">
+            Концентрированные средства для бесконтактной мойки, ухода за
+            салоном и внешним видом автомобиля. Фасовка от 1 л до 20 кг.
+          </p>
+        </div>
+
+        <Image
+          src="/photos/products.jpg"
+          alt="Линейка продукции ASF Car Wash Chemicals"
+          width={1536}
+          height={1024}
+          sizes="(min-width: 1280px) 1232px, 100vw"
+          className="mb-12 h-auto w-full"
+        />
+
+        {categories.map((cat) => {
+          const items = products.filter((p) => p.category === cat.id);
+          return (
+            <div key={cat.id} className="mb-12 last:mb-0">
+              <h3 className="mb-5 border-b border-line pb-3 text-[15px] font-bold tracking-caps uppercase">
+                {cat.title}
+                <span className="ml-2 text-muted">({items.length})</span>
+              </h3>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {items.map((p) => (
+                  <ProductCard key={p.id} product={p} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

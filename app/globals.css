@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #121212;
+  --color-paper: #ffffff;
+  --color-amber: #ffb902;
+  --color-amber-dark: #e0a300;
+  --color-amber-soft: #faf1e2;
+  --color-line: #e6e4e0;
+  --color-muted: #71706c;
+  --color-soft: #f7f6f3;
+  --color-cream: #f3efe8;
+  --color-foam: #c2186f;
+  --color-violet: #5b21b6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-ink);
+  background: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: #111;
+}
+
+.tracking-caps {
+  letter-spacing: 0.14em;
+}
+
+/* заглушка под фото — заменить на реальные снимки */
+.photo-placeholder {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(127, 127, 127, 0.08),
+    rgba(127, 127, 127, 0.08) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
