@@ -1,6 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
+import BeforeAfter from "@/components/BeforeAfter";
+import Videos from "@/components/Videos";
+import Geography from "@/components/Geography";
 import Products from "@/components/Products";
 import Comparison from "@/components/Comparison";
 import HowWeWork from "@/components/HowWeWork";
@@ -21,14 +24,17 @@ export default function Home() {
       <main>
         <Hero />
         <TrustBadges />
+        <BeforeAfter />
         <Products />
         <Comparison />
         <HowWeWork />
         <Wholesale />
         <Capacity />
+        <Videos />
         <Quality />
         <AboutCompany />
         <Testimonials />
+        <Geography />
         <CtaBand />
         <Faq />
         <ContactSection />

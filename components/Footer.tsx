@@ -168,8 +168,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 text-[12px] text-white/50">
+        <div className="flex flex-col items-start justify-between gap-3 pt-6 text-[12px] text-white/50 sm:flex-row">
           <p>© {new Date().getFullYear()} Astana Soap Factory. Все права защищены.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-1">
+            <a href="/privacy" className="transition-colors hover:text-amber">
+              Политика конфиденциальности
+            </a>
+            {/* TODO: сертификаты и реквизиты — добавить страницы, когда клиент пришлёт документы */}
+            <a
+              href={contacts.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-amber"
+            >
+              Сертификаты и реквизиты — по запросу
+            </a>
+          </div>
         </div>
       </div>
     </footer>
