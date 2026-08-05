@@ -52,38 +52,20 @@ export default function AboutCompany() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-3">
-            <figure>
+          <div className="flex justify-center lg:justify-end">
+            <figure className="reveal w-full max-w-[320px] self-start border border-line bg-paper p-3 shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
               <Image
                 src="/photos/founder.jpg"
                 alt="Руслан — основатель Astana Soap Factory"
                 width={477}
                 height={647}
-                sizes="(min-width: 1024px) 38vw, 100vw"
+                sizes="320px"
                 className="h-auto w-full"
               />
-              <figcaption className="border-b border-line py-3 text-[13px] font-semibold tracking-caps uppercase text-muted">
+              <figcaption className="px-1 pb-1 pt-3 text-center text-[12px] font-semibold tracking-caps uppercase text-muted">
                 Руслан — основатель ASF
               </figcaption>
             </figure>
-            <div className="grid grid-cols-2 gap-3">
-              <Image
-                src="/photos/about-workshop.jpg"
-                alt="Производственный цех ASF"
-                width={745}
-                height={559}
-                sizes="19vw"
-                className="h-auto w-full"
-              />
-              <Image
-                src="/photos/about-warehouse.jpg"
-                alt="Отгрузка продукции ASF со склада"
-                width={745}
-                height={559}
-                sizes="19vw"
-                className="h-auto w-full"
-              />
-            </div>
           </div>
         </div>
       </div>
