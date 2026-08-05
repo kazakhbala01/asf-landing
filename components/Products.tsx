@@ -2,13 +2,24 @@ import Image from "next/image";
 import Canister from "./Canister";
 import { categories, products, type Product } from "@/lib/products";
 
+/** тёмный или белый текст в зависимости от светлоты акцента */
+function onAccent(hex: string) {
+  const v = parseInt(hex.slice(1), 16);
+  const lum = 0.299 * ((v >> 16) & 255) + 0.587 * ((v >> 8) & 255) + 0.114 * (v & 255);
+  return lum > 160 ? "#111111" : "#ffffff";
+}
+
 function ProductCard({ product }: { product: Product }) {
   return (
     <article
       id={product.id}
-      className="flex scroll-mt-24 flex-col border border-line bg-paper transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
+      style={{ borderTopColor: product.accent }}
+      className="flex scroll-mt-24 flex-col border border-t-[3px] border-line bg-paper transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
     >
-      <div className="flex items-center justify-center border-b border-line bg-soft py-8">
+      <div
+        className="flex items-center justify-center border-b border-line py-8"
+        style={{ backgroundColor: `${product.accent}0a` }}
+      >
         <Canister
           name={product.name.replace("ASF ", "")}
           accent={product.accent}
@@ -22,7 +33,10 @@ function ProductCard({ product }: { product: Product }) {
             {product.name}
           </h3>
           {product.bestseller && (
-            <span className="shrink-0 bg-amber px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase text-ink">
+            <span
+              className="shrink-0 px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase"
+              style={{ backgroundColor: product.accent, color: onAccent(product.accent) }}
+            >
               Хит
             </span>
           )}

@@ -53,6 +53,9 @@ export default function Hero() {
               Для автомоек
             </a>
           </div>
+          <p className="mt-9 text-[12px] font-semibold tracking-caps uppercase text-ink/45">
+            Производим в Астане&ensp;·&ensp;12 продуктов&ensp;·&ensp;Опт и розница
+          </p>
         </div>
       </div>
     </section>

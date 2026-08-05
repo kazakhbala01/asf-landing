@@ -30,28 +30,21 @@ export default function HowWeWork() {
   return (
     <section id="how-we-work" className="border-b border-line">
       <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-18">
+        <div className="mb-4 flex items-center gap-3">
+          <span className="h-0.5 w-8 bg-amber" />
+          <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
+            Процесс
+          </span>
+        </div>
         <h2 className="mb-12 text-4xl font-extrabold tracking-tight sm:text-5xl">
           КАК МЫ РАБОТАЕМ
         </h2>
         <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
-          {steps.map((s, i) => (
-            <li key={s.n} className="relative">
-              <div className="flex items-baseline gap-3">
-                <span className="text-5xl font-extrabold tabular-nums text-amber">
-                  {s.n}
-                </span>
-                {i < steps.length - 1 && (
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    className="hidden h-4 w-4 text-line lg:block"
-                  >
-                    <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
-              </div>
+          {steps.map((s) => (
+            <li key={s.n} className="border-t-2 border-line pt-6">
+              <span className="text-5xl font-extrabold tabular-nums text-amber">
+                {s.n}
+              </span>
               <h3 className="mt-4 text-[15px] font-bold tracking-caps uppercase">
                 {s.title}
               </h3>

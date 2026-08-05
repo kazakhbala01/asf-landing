@@ -13,9 +13,12 @@ export default function AboutCompany() {
       <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
           <div>
-            <p className="mb-4 text-[11px] font-bold tracking-caps uppercase text-amber">
-              О компании
-            </p>
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-0.5 w-8 bg-amber" />
+              <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
+                О компании
+              </span>
+            </div>
             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
               ASTANA SOAP FACTORY
             </h2>

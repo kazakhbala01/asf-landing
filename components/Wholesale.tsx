@@ -5,9 +5,12 @@ export default function Wholesale() {
     <section id="wholesale" className="bg-ink text-white">
       <div className="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:gap-14 lg:py-0">
         <div className="lg:py-16">
-          <p className="mb-4 text-[11px] font-bold tracking-caps uppercase text-amber">
-            Оптовым партнёрам
-          </p>
+          <div className="mb-4 flex items-center gap-3">
+            <span className="h-0.5 w-8 bg-amber" />
+            <span className="text-[11px] font-semibold tracking-caps uppercase text-white/60">
+              Оптовым партнёрам
+            </span>
+          </div>
           <h2 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
             Сильнее вместе.
             <br />

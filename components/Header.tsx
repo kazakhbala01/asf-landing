@@ -40,7 +40,7 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[13px] font-semibold tracking-caps text-white uppercase transition-colors hover:text-amber"
+              className="relative text-[13px] font-semibold tracking-caps text-white uppercase transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-0 after:bg-amber after:transition-[width] after:duration-200 hover:text-amber hover:after:w-full"
             >
               {item.label}
             </a>

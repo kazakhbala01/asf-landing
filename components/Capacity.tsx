@@ -21,6 +21,12 @@ export default function Capacity() {
           className="h-auto w-full self-center"
         />
         <div className="bg-cream px-4 py-12 sm:px-10 lg:py-16">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="h-0.5 w-8 bg-amber" />
+            <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
+              Собственная площадка
+            </span>
+          </div>
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             ПРОИЗВОДСТВО
           </h2>
