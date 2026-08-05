@@ -17,10 +17,24 @@ export default function Wholesale() {
             Растём вместе.
           </h2>
           <p className="mt-6 max-w-md text-[16px] leading-relaxed text-white/65">
-            Конкурентные цены, стабильные поставки и поддержка, которая
-            помогает вашей мойке зарабатывать больше. Подберём химию под ваше
-            оборудование и воду, поможем настроить нормы разведения.
+            Поддержка, которая помогает вашей мойке зарабатывать больше:
+            подберём химию под ваше оборудование и воду, поможем настроить
+            нормы разведения.
           </p>
+          <ul className="mt-6 space-y-3">
+            {[
+              "Экономия до 35% без потери качества",
+              "Бесплатные образцы под вашу воду",
+              "Стабильные поставки по всему Казахстану",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-3 text-[15px] font-semibold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5 shrink-0 text-amber">
+                  <path d="M5 12.5l4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
           <a
             href="#contacts"
             className="mt-8 inline-flex items-center gap-2 bg-amber px-8 py-4 text-[13px] font-bold tracking-caps uppercase text-ink transition-colors hover:bg-amber-dark"

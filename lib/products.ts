@@ -221,5 +221,12 @@ export const contacts = {
   phones: ["+7 747 378 3166", "+7 771 700 2735", "+7 747 238 3166"],
   emails: ["asfropsd@gmail.com", "astanasoapfactory@gmail.com"],
   address: "г. Астана, ул. Сокпакбаева 20/2",
+  addressLink: "https://2gis.kz/astana/geo/9570784863339802/71.382937,51.173911",
+  whatsapp: "https://wa.me/77473783166",
+  telegram: "https://t.me/Astanasoapfactory",
   instagram: "https://www.instagram.com/astanasoapfactory",
+  marketplaces: [
+    { name: "Kaspi.kz — официальный магазин", href: "https://l.kaspi.kz/shop/8utqPLhNxyXVB3M" },
+    { name: "TEEZ.kz", href: "https://teez.kz/shop/11105" },
+  ],
 };

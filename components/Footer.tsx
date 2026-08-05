@@ -49,7 +49,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             <div>
               <p className="mb-3 text-[10px] font-bold tracking-caps uppercase text-white/50">
                 Продукция
@@ -90,6 +90,46 @@ export default function Footer() {
 
             <div>
               <p className="mb-3 text-[10px] font-bold tracking-caps uppercase text-white/50">
+                Где купить
+              </p>
+              <ul className="space-y-2">
+                {contacts.marketplaces.map((m) => (
+                  <li key={m.href}>
+                    <a
+                      href={m.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[14px] text-white/80 transition-colors hover:text-amber"
+                    >
+                      {m.name}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a
+                    href={contacts.telegram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-white/80 transition-colors hover:text-amber"
+                  >
+                    Telegram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={contacts.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-white/80 transition-colors hover:text-amber"
+                  >
+                    WhatsApp
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="mb-3 text-[10px] font-bold tracking-caps uppercase text-white/50">
                 Контакты
               </p>
               <ul className="space-y-2">
@@ -113,8 +153,15 @@ export default function Footer() {
                     </a>
                   </li>
                 ))}
-                <li className="pt-1 text-[14px] leading-snug text-white/60">
-                  {contacts.address}
+                <li className="pt-1">
+                  <a
+                    href={contacts.addressLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] leading-snug text-white/60 transition-colors hover:text-amber"
+                  >
+                    {contacts.address} · 2ГИС
+                  </a>
                 </li>
               </ul>
             </div>
