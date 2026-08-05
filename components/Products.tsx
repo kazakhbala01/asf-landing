@@ -100,10 +100,17 @@ export default function Products() {
           const items = products.filter((p) => p.category === cat.id);
           return (
             <div key={cat.id} className="mb-12 last:mb-0">
-              <h3 className="mb-5 border-b border-line pb-3 text-[15px] font-bold tracking-caps uppercase">
-                {cat.title}
-                <span className="ml-2 text-muted">({items.length})</span>
-              </h3>
+              <div className="mb-5 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-line pb-3">
+                <h3 className="flex items-center gap-2.5 text-[15px] font-bold tracking-caps uppercase">
+                  <span
+                    className="h-2.5 w-2.5 rounded-full"
+                    style={{ backgroundColor: cat.accent }}
+                  />
+                  {cat.title}
+                  <span className="font-semibold text-muted">({items.length})</span>
+                </h3>
+                <p className="text-[14px] text-muted">{cat.tagline}</p>
+              </div>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((p) => (
                   <ProductCard key={p.id} product={p} />

@@ -7,7 +7,7 @@ export type Product = {
   id: string;
   name: string;
   nameRu?: string;
-  category: "foam" | "polish" | "care";
+  category: "pink" | "activefoam" | "autogleam" | "interior" | "care";
   description: string;
   volumes: string[];
   dilutions: Dilution[];
@@ -16,16 +16,49 @@ export type Product = {
   bestseller?: boolean;
 };
 
-export const categories: { id: Product["category"]; title: string }[] = [
-  { id: "foam", title: "Линейка автошампуней" },
-  { id: "polish", title: "Полироли для салона" },
-  { id: "care", title: "Для ухода за авто" },
-];
-
 const PINK = "#d6067d";
 const AMBER = "#ffb902";
 const VIOLET = "#6d28d9";
 const DARK = "#232323";
+
+// Сегменты линейки — от премиума к базе, плюс салон и уход отдельно
+export const categories: {
+  id: Product["category"];
+  title: string;
+  tagline: string;
+  accent: string;
+}[] = [
+  {
+    id: "pink",
+    title: "ASF Pink",
+    tagline: "Премиальная линейка — фирменная розовая активная пена",
+    accent: PINK,
+  },
+  {
+    id: "activefoam",
+    title: "Active Foam",
+    tagline: "Средний сегмент — сильные концентраты, работают в жёсткой воде",
+    accent: AMBER,
+  },
+  {
+    id: "autogleam",
+    title: "AutoGleam",
+    tagline: "Базовая линейка — рабочая химия на каждый день",
+    accent: VIOLET,
+  },
+  {
+    id: "interior",
+    title: "ASF Interior",
+    tagline: "Косметика для салона",
+    accent: DARK,
+  },
+  {
+    id: "care",
+    title: "ASF Care",
+    tagline: "Уход за экстерьером — шины и моторный отсек",
+    accent: AMBER,
+  },
+];
 
 /** цветовая маркировка линеек: розовый — Pink, янтарный — Active Foam, фиолетовый — AutoGleam */
 export const lineColors = { PINK, AMBER, VIOLET, DARK };
@@ -35,7 +68,7 @@ export const products: Product[] = [
   {
     id: "pink-active",
     name: "ASF Pink Active Foam",
-    category: "foam",
+    category: "pink",
     description:
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Содержит антикоррозийные добавки для защиты ЛКП. Образует плотную активную пену насыщенного розового цвета.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -46,7 +79,7 @@ export const products: Product[] = [
   {
     id: "pink-soft",
     name: "ASF Pink Soft Active Foam",
-    category: "foam",
+    category: "pink",
     description:
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Образует густую, устойчивую пену. Удаляет все виды загрязнений. Имеет насыщенный розовый цвет.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -56,7 +89,7 @@ export const products: Product[] = [
   {
     id: "pink-force",
     name: "ASF Pink Force Active Foam",
-    category: "foam",
+    category: "pink",
     description:
       "Обеспечивает качественную и бережную мойку. Безопасен для ЛКП. Идеально подходит для мойки легковых и грузовых автомобилей. Обладает глубоким розовым цветом.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -67,7 +100,7 @@ export const products: Product[] = [
   {
     id: "storm",
     name: "Active Foam Storm",
-    category: "foam",
+    category: "activefoam",
     description:
       "Высокоэффективный профессиональный автошампунь, разработанный для работы с жёсткой водой. Образует густую, устойчивую активную пену, эффективно размягчает и удаляет любые виды загрязнений.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -82,7 +115,7 @@ export const products: Product[] = [
   {
     id: "strong",
     name: "Active Foam Strong",
-    category: "foam",
+    category: "activefoam",
     description:
       "Высококонцентрированное сильнодействующее средство с отличным пенообразованием, предназначенное для бесконтактной мойки. Благодаря сбалансированной формуле обеспечивает экономичное разведение с водой, без потери моющих качеств.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -96,7 +129,7 @@ export const products: Product[] = [
   {
     id: "autogleam-prime",
     name: "AutoGleam Prime",
-    category: "foam",
+    category: "autogleam",
     description:
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Содержит антикоррозийные добавки. Подходит для мойки как легковых, так и грузовых автомобилей. Максимально эффективно показывает себя в жёсткой воде.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -110,7 +143,7 @@ export const products: Product[] = [
   {
     id: "autogleam-ultra",
     name: "AutoGleam Ultra",
-    category: "foam",
+    category: "autogleam",
     description:
       "Обеспечивает качественную и бережную мойку. Содержит активные компоненты, предохраняющие кузов от воздействия дорожных реагентов в зимнее время.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -124,7 +157,7 @@ export const products: Product[] = [
   {
     id: "autogleam-dozatron",
     name: "AutoGleam Dozatron",
-    category: "foam",
+    category: "autogleam",
     description:
       "Профессиональное высококонцентрированное средство, разработанное специально для использования в системах дозирования. Эффективно удаляет самые сложные загрязнения, используя даже неподготовленную воду. Имеет умеренное пенообразование.",
     volumes: ["1 л", "5 кг", "20 кг"],
@@ -138,7 +171,7 @@ export const products: Product[] = [
   {
     id: "polyrole-gloss",
     name: "Polyrole Shine Gloss",
-    category: "polish",
+    category: "interior",
     description:
       "Полироль для пластика салона. Препятствует оседанию пыли. Не оставляет жирных следов. Придаёт глянцевый блеск.",
     volumes: ["1 л", "5 кг"],
@@ -148,7 +181,7 @@ export const products: Product[] = [
   {
     id: "polyrole-matte",
     name: "Polyrole Shine Matte",
-    category: "polish",
+    category: "interior",
     description:
       "Полироль для пластика салона. Препятствует оседанию пыли. Не оставляет жирных следов. Придаёт матовый эффект.",
     volumes: ["1 л", "5 кг"],
