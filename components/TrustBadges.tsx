@@ -47,7 +47,7 @@ export default function TrustBadges() {
     <section className="bg-ink text-white">
       <div className="mx-auto grid max-w-[85rem] grid-cols-1 divide-white/15 sm:grid-cols-2 sm:divide-x lg:grid-cols-4 lg:px-6">
         {badges.map((b) => (
-          <div key={b.title} className="flex items-start gap-4 px-4 py-9 sm:px-8 lg:justify-center">
+          <div key={b.title} className="reveal flex items-start gap-4 px-4 py-9 sm:px-8 lg:justify-center">
             <span className="mt-0.5 shrink-0 text-amber">{b.icon}</span>
             <div>
               <p className="text-[14px] font-bold tracking-caps uppercase leading-snug">

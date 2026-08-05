@@ -14,7 +14,7 @@ function ProductCard({ product }: { product: Product }) {
     <article
       id={product.id}
       style={{ borderTopColor: product.accent }}
-      className="flex scroll-mt-24 flex-col border border-t-[3px] border-line bg-paper transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
+      className="reveal flex scroll-mt-24 flex-col border border-t-[3px] border-line bg-paper transition-shadow hover:shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
     >
       <div
         className="flex items-center justify-center border-b border-line py-8"

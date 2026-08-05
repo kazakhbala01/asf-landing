@@ -1,4 +1,4 @@
-import Photo from "./Photo";
+import Image from "next/image";
 
 const numbers = [
   { value: "2020", label: "основано производство химии" },
@@ -12,7 +12,7 @@ export default function AboutCompany() {
     <section id="about" className="border-b border-line bg-soft">
       <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
-          <div>
+          <div className="reveal">
             <div className="mb-4 flex items-center gap-3">
               <span className="h-0.5 w-8 bg-amber" />
               <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
@@ -53,10 +53,36 @@ export default function AboutCompany() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <Photo label="Фото: Руслан — основатель ASF" className="aspect-[4/3] w-full" />
+            <figure>
+              <Image
+                src="/photos/founder.jpg"
+                alt="Руслан — основатель Astana Soap Factory"
+                width={477}
+                height={647}
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="h-auto w-full"
+              />
+              <figcaption className="border-b border-line py-3 text-[13px] font-semibold tracking-caps uppercase text-muted">
+                Руслан — основатель ASF
+              </figcaption>
+            </figure>
             <div className="grid grid-cols-2 gap-3">
-              <Photo label="Фото: цех" className="aspect-[4/3]" />
-              <Photo label="Фото: продукция на складе" className="aspect-[4/3]" />
+              <Image
+                src="/photos/about-workshop.jpg"
+                alt="Производственный цех ASF"
+                width={745}
+                height={559}
+                sizes="19vw"
+                className="h-auto w-full"
+              />
+              <Image
+                src="/photos/about-warehouse.jpg"
+                alt="Отгрузка продукции ASF со склада"
+                width={745}
+                height={559}
+                sizes="19vw"
+                className="h-auto w-full"
+              />
             </div>
           </div>
         </div>

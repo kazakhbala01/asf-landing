@@ -41,7 +41,7 @@ export default function HowWeWork() {
         </h2>
         <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {steps.map((s) => (
-            <li key={s.n} className="border-t-2 border-line pt-6">
+            <li key={s.n} className="reveal border-t-2 border-line pt-6">
               <span className="text-5xl font-extrabold tabular-nums text-amber">
                 {s.n}
               </span>

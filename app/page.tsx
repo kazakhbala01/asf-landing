@@ -8,6 +8,7 @@ import Capacity from "@/components/Capacity";
 import Quality from "@/components/Quality";
 import AboutCompany from "@/components/AboutCompany";
 import Testimonials from "@/components/Testimonials";
+import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Quality />
         <AboutCompany />
         <Testimonials />
+        <Faq />
         <CtaBand />
       </main>
       <Footer />

@@ -4,7 +4,7 @@ export default function Wholesale() {
   return (
     <section id="wholesale" className="bg-ink text-white">
       <div className="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1fr_1.3fr] lg:gap-14 lg:py-0">
-        <div className="lg:py-16">
+        <div className="reveal lg:py-16">
           <div className="mb-4 flex items-center gap-3">
             <span className="h-0.5 w-8 bg-amber" />
             <span className="text-[11px] font-semibold tracking-caps uppercase text-white/60">

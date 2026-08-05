@@ -35,7 +35,7 @@ export default function Testimonials() {
         </h2>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {testimonials.map((t) => (
-            <figure key={t.quote} className="flex flex-col border border-t-2 border-line border-t-amber p-8">
+            <figure key={t.quote} className="reveal flex flex-col border border-t-2 border-line border-t-amber p-8">
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-8 w-8 text-amber">
                 <path d="M10 7H6a3 3 0 0 0-3 3v7h7v-7H7c0-1.7 1.3-3 3-3V7zm11 0h-4a3 3 0 0 0-3 3v7h7v-7h-3c0-1.7 1.3-3 3-3V7z" />
               </svg>

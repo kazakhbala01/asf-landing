@@ -40,13 +40,24 @@ body {
   letter-spacing: 0.14em;
 }
 
-/* заглушка под фото — заменить на реальные снимки */
-.photo-placeholder {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(127, 127, 127, 0.08),
-    rgba(127, 127, 127, 0.08) 1px,
-    transparent 1px,
-    transparent 14px
-  );
+/* мягкое появление при прокрутке: только CSS, в старых браузерах просто ничего не делает */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up 0.7s ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

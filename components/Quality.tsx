@@ -29,7 +29,7 @@ export default function Quality() {
           </div>
           <ul className="grid grid-cols-2 gap-6 sm:grid-cols-3">
             {points.map((p) => (
-              <li key={p} className="flex flex-col items-center gap-3 text-center">
+              <li key={p} className="reveal flex flex-col items-center gap-3 text-center">
                 <span className="flex h-28 w-28 items-center justify-center rounded-full border border-ink/20">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-10 w-10 text-amber">
                     <path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z" strokeLinejoin="round" />
