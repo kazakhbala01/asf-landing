@@ -217,6 +217,10 @@ export const products: Product[] = [
   },
 ];
 
+/** wa.me-ссылка с заготовленным сообщением */
+export const waLink = (text: string) =>
+  `https://wa.me/77473783166?text=${encodeURIComponent(text)}`;
+
 export const contacts = {
   phones: ["+7 747 378 3166", "+7 771 700 2735", "+7 747 238 3166"],
   emails: ["asfropsd@gmail.com", "astanasoapfactory@gmail.com"],

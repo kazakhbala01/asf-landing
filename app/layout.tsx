@@ -25,6 +25,32 @@ export const metadata: Metadata = {
   },
 };
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Astana Soap Factory",
+  alternateName: "ASF",
+  description:
+    "Казахстанский производитель профессиональной автохимии: автошампуни для бесконтактной мойки, полироли, чернитель шин, очиститель двигателя.",
+  foundingDate: "2020",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Астана",
+    addressCountry: "KZ",
+    streetAddress: "ул. Сокпакбаева 20/2",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+7-747-378-3166",
+    contactType: "sales",
+    availableLanguage: ["ru", "kk"],
+  },
+  sameAs: [
+    "https://www.instagram.com/astanasoapfactory",
+    "https://t.me/Astanasoapfactory",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +59,13 @@ export default function RootLayout({
   return (
     <html lang="ru" className={GeistSans.className}>
       {/* suppressHydrationWarning: браузерные расширения добавляют свои атрибуты в body до загрузки React */}
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </body>
     </html>
   );
 }

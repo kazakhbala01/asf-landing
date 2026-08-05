@@ -1,27 +1,17 @@
 const badges = [
   {
-    title: "Собственное производство",
-    text: "Полный цикл — от формулы до фасовки",
+    title: "Стабильное качество",
+    text: "Контроль каждой партии — одна формула всегда",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
-        <path d="M3 21V9l6 4V9l6 4V5h6v16H3z" strokeLinejoin="round" />
+        <path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z" strokeLinejoin="round" />
+        <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    title: "Надёжные поставки",
-    text: "Стабильные отгрузки точно в срок",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
-        <path d="M2 7h12v10H2V7zm12 3h4l3 3v4h-7" strokeLinejoin="round" />
-        <circle cx="6" cy="17" r="1.6" />
-        <circle cx="17" cy="17" r="1.6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Продвинутые формулы",
-    text: "Высокая концентрация — лучший результат",
+    title: "Профессиональные рецептуры",
+    text: "Собственные формулы под реальные условия моек",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
         <path d="M9 3h6M10 3v5.5L4.8 18a2.5 2.5 0 0 0 2.2 3.7h10a2.5 2.5 0 0 0 2.2-3.7L14 8.5V3" strokeLinecap="round" strokeLinejoin="round" />
@@ -30,13 +20,43 @@ const badges = [
     ),
   },
   {
-    title: "Партнёрский подход",
-    text: "Растём вместе с вашим бизнесом",
+    title: "Сильная моющая способность",
+    text: "Активная пена отрывает грязь без ручной мойки",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
-        <circle cx="9" cy="8" r="3" />
-        <circle cx="17" cy="10" r="2.4" />
-        <path d="M3.5 20c.6-3 2.8-5 5.5-5s4.9 2 5.5 5M14.8 15.4c2.3.3 4 2 4.6 4.6" strokeLinecap="round" />
+        <path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z" strokeLinejoin="round" />
+        <path d="M9 14.5a3.2 3.2 0 0 0 2.4 3.4" strokeLinecap="round" opacity="0.7" />
+      </svg>
+    ),
+  },
+  {
+    title: "Безопасность для оборудования",
+    text: "Не вредит пенокомплектам, дозатронам и ЛКП",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1h.2a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Экономичный расход",
+    text: "Концентраты до 1:200 — ниже себестоимость мойки",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
+        <path d="M12 21a9 9 0 1 1 9-9" strokeLinecap="round" />
+        <path d="M12 12l4.5-4.5" strokeLinecap="round" />
+        <path d="M18.5 15.5l2.5 1-2 2.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Работаем по всему Казахстану",
+    text: "Отгрузка со склада в Астане в любой регион",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-9 w-9">
+        <path d="M12 21s-6.5-5.7-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.3 12 21 12 21z" strokeLinejoin="round" />
+        <circle cx="12" cy="10.5" r="2.3" />
       </svg>
     ),
   },
@@ -45,9 +65,9 @@ const badges = [
 export default function TrustBadges() {
   return (
     <section className="bg-ink text-white">
-      <div className="mx-auto grid max-w-[85rem] grid-cols-1 divide-white/15 sm:grid-cols-2 sm:divide-x lg:grid-cols-4 lg:px-6">
+      <div className="mx-auto grid max-w-[85rem] grid-cols-1 divide-white/15 sm:grid-cols-2 sm:divide-x lg:grid-cols-3 lg:px-6">
         {badges.map((b) => (
-          <div key={b.title} className="reveal flex items-start gap-4 px-4 py-9 sm:px-8 lg:justify-center">
+          <div key={b.title} className="reveal flex items-start gap-4 px-4 py-8 sm:px-8">
             <span className="mt-0.5 shrink-0 text-amber">{b.icon}</span>
             <div>
               <p className="text-[14px] font-bold tracking-caps uppercase leading-snug">

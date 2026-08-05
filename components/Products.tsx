@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Canister from "./Canister";
-import { categories, products, type Product } from "@/lib/products";
+import { categories, products, waLink, type Product } from "@/lib/products";
 
 /** тёмный или белый текст в зависимости от светлоты акцента */
 function onAccent(hex: string) {
@@ -74,6 +74,15 @@ function ProductCard({ product }: { product: Product }) {
             ))}
           </tbody>
         </table>
+
+        <a
+          href={waLink(`Здравствуйте! Интересует ${product.name} — подскажите цену.`)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 block border border-ink py-3 text-center text-[12px] font-bold tracking-caps uppercase transition-colors hover:bg-ink hover:text-white"
+        >
+          Получить цену
+        </a>
       </div>
     </article>
   );
