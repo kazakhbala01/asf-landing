@@ -14,14 +14,15 @@ export default function Capacity() {
   return (
     <section id="production" className="border-b border-line">
       <div className="mx-auto grid max-w-[85rem] grid-cols-1 lg:grid-cols-2">
-        <Image
-          src="/photos/production.jpg"
-          alt="Производственный цех Astana Soap Factory — линия розлива автохимии"
-          width={1024}
-          height={559}
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="h-auto w-full self-center"
-        />
+        <div className="relative min-h-[320px] lg:min-h-full">
+          <Image
+            src="/photos/production.jpg"
+            alt="Производственный цех Astana Soap Factory — линия розлива автохимии"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="bg-cream px-4 py-12 sm:px-10 lg:py-16">
           <div className="mb-4 flex items-center gap-3">
             <span className="h-0.5 w-8 bg-amber" />
