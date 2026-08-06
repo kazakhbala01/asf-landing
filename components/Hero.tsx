@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-soft">
       {/* фоновое фото с растворением в белый слева, сдвинуто вправо */}
       <div className="absolute inset-0">
-        <div className="absolute inset-y-0 -right-[7%] left-[7%]">
+        <div className="absolute inset-y-0 -left-[6%] right-0">
           <Image
             src="/photos/hero-foam.jpg"
             alt="Автомобиль в густой активной пене ASF"
@@ -26,7 +26,7 @@ export default function Hero() {
         </div>
         {/* лёгкое затемнение фото справа */}
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0)_42%,rgba(0,0,0,0.30)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#f7f6f3_0%,#f7f6f3_34%,rgba(247,246,243,0.78)_52%,rgba(247,246,243,0.18)_72%,rgba(247,246,243,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,#f7f6f3_0%,#f7f6f3_30%,rgba(247,246,243,0.75)_47%,rgba(247,246,243,0.15)_64%,rgba(247,246,243,0)_100%)]" />
         {/* на мобильных забеливаем сильнее, чтобы текст читался */}
         <div className="absolute inset-0 bg-soft/75 sm:hidden" />
       </div>
@@ -34,16 +34,15 @@ export default function Hero() {
       {/* высота: экран минус шапка и полоса преимуществ — полоса видна на первом экране */}
       <div className="relative mx-auto flex min-h-[480px] w-full max-w-[85rem] items-center px-4 py-14 sm:px-6 lg:min-h-[calc(100vh-200px)] lg:py-16">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-extrabold leading-[1.06] tracking-tight text-ink sm:text-5xl xl:text-[3.6rem]">
-            ПРОФЕССИОНАЛЬНАЯ АВТОХИМИЯ,
+          <h1 className="text-4xl font-extrabold leading-[1.06] tracking-tight text-ink sm:text-5xl xl:text-[3.8rem]">
+            УВЕЛИЧЬТЕ ПРИБЫЛЬ АВТОМОЙКИ
             <br />
-            <span className="text-amber-dark">КОТОРУЮ ВЫБИРАЮТ</span>
-            <br />
-            АВТОМОЙКИ КАЗАХСТАНА
+            <span className="text-amber-dark">В 2–3 РАЗА</span>
           </h1>
-          <p className="mt-6 max-w-lg text-[17px] leading-relaxed text-ink/70">
-            Производим автошампуни, очистители двигателя, полироли и другую
-            автохимию с высокой моющей способностью и выгодной себестоимостью.
+          <p className="mt-6 max-w-lg text-[18px] leading-relaxed text-ink/75">
+            За счёт более быстрой мойки, меньшего расхода автохимии
+            и возвращающихся клиентов. Производим профессиональные автошампуни,
+            очистители двигателя и полироли с выгодной себестоимостью.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a

@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
 import BeforeAfter from "@/components/BeforeAfter";
-import Videos from "@/components/Videos";
+import Media from "@/components/Media";
 import Geography from "@/components/Geography";
 import Products from "@/components/Products";
 import Comparison from "@/components/Comparison";
@@ -30,7 +30,7 @@ export default function Home() {
         <HowWeWork />
         <Wholesale />
         <Capacity />
-        <Videos />
+        <Media />
         <Quality />
         <AboutCompany />
         <Testimonials />

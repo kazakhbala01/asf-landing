@@ -27,7 +27,7 @@ export default function Geography() {
               </span>
             </div>
             <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-              ПОСТАВЛЯЕМ ПО ВСЕМУ КАЗАХСТАНУ
+              УЖЕ <span className="text-amber">15+ ГОРОДОВ</span> КАЗАХСТАНА
             </h2>
             <p className="mt-4 max-w-md text-[16px] leading-relaxed text-white/65">
               Отгружаем со склада в Астане в любой регион. Ваш город есть в
