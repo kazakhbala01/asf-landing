@@ -41,15 +41,15 @@ const rows = [
 export default function Comparison() {
   return (
     <section className="border-b border-line bg-soft">
-      <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-20">
-        <div className="reveal mb-10">
+      <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
+        <div className="reveal mb-7 sm:mb-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="h-0.5 w-8 bg-amber" />
             <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
               Сравнение
             </span>
           </div>
-          <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <h2 className="text-[1.75rem] font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             ПОЧЕМУ НАША ХИМИЯ ВЫГОДНЕЕ
           </h2>
         </div>
@@ -70,8 +70,8 @@ export default function Comparison() {
             <tbody>
               {rows.map((r) => (
                 <tr key={r.label} className="border-b border-line">
-                  <td className="px-5 py-4 font-bold">{r.label}</td>
-                  <td className="bg-amber/10 px-5 py-4 font-semibold">
+                  <td className="px-4 py-3 font-bold sm:px-5 sm:py-4">{r.label}</td>
+                  <td className="bg-amber/10 px-4 py-3 font-semibold sm:px-5 sm:py-4">
                     <span className="flex items-start gap-2">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="mt-0.5 h-4 w-4 shrink-0 text-amber-dark">
                         <path d="M5 12.5l4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -79,7 +79,7 @@ export default function Comparison() {
                       {r.asf}
                     </span>
                   </td>
-                  <td className="px-5 py-4 text-muted">{r.others}</td>
+                  <td className="px-4 py-3 text-muted sm:px-5 sm:py-4">{r.others}</td>
                 </tr>
               ))}
             </tbody>

@@ -16,7 +16,7 @@ export default function ContactSection() {
 
   return (
     <section id="contacts" className="border-b border-line">
-      <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-20">
+      <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
         <div className="reveal mb-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="h-0.5 w-8 bg-amber" />
@@ -24,7 +24,7 @@ export default function ContactSection() {
               Контакты
             </span>
           </div>
-          <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+          <h2 className="text-[1.75rem] font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             ОСТАВЬТЕ ЗАЯВКУ
           </h2>
         </div>

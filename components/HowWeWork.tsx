@@ -34,20 +34,20 @@ const steps = [
 export default function HowWeWork() {
   return (
     <section id="how-we-work" className="border-b border-line">
-      <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-18">
+      <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-18">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-0.5 w-8 bg-amber" />
           <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
             Процесс
           </span>
         </div>
-        <h2 className="mb-12 text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <h2 className="mb-8 text-[1.75rem] sm:mb-12 font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           КАК ПРОИСХОДИТ СОТРУДНИЧЕСТВО
         </h2>
-        <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-12">
+        <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-12">
           {steps.map((s) => (
-            <li key={s.n} className="reveal border-t-2 border-line pt-6">
-              <span className="text-5xl font-extrabold tabular-nums text-amber">
+            <li key={s.n} className="reveal border-t-2 border-line pt-4 sm:pt-6">
+              <span className="text-4xl font-extrabold tabular-nums text-amber sm:text-5xl">
                 {s.n}
               </span>
               <h3 className="mt-4 text-[15px] font-bold tracking-caps uppercase">

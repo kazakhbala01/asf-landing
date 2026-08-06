@@ -23,23 +23,23 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="border-b border-line">
-      <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-18">
+      <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-18">
         <div className="mb-4 flex items-center gap-3">
           <span className="h-0.5 w-8 bg-amber" />
           <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
             Отзывы
           </span>
         </div>
-        <h2 className="mb-12 text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <h2 className="mb-8 text-[1.75rem] sm:mb-12 font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           С НАМИ РАБОТАЮТ
         </h2>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {testimonials.map((t) => (
-            <figure key={t.quote} className="reveal flex flex-col border border-t-2 border-line border-t-amber p-8">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-8 w-8 text-amber">
+            <figure key={t.quote} className="reveal flex flex-col border border-t-2 border-line border-t-amber p-5 sm:p-8">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 text-amber sm:h-8 sm:w-8">
                 <path d="M10 7H6a3 3 0 0 0-3 3v7h7v-7H7c0-1.7 1.3-3 3-3V7zm11 0h-4a3 3 0 0 0-3 3v7h7v-7h-3c0-1.7 1.3-3 3-3V7z" />
               </svg>
-              <blockquote className="mt-5 flex-1 text-[16px] leading-relaxed">
+              <blockquote className="mt-4 flex-1 text-[14px] leading-relaxed sm:mt-5 sm:text-[16px]">
                 {t.quote}
               </blockquote>
               <figcaption className="mt-6 border-t border-line pt-4">

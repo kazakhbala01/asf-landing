@@ -5,10 +5,10 @@ export default function CtaBand() {
     <section id="sample" className="bg-amber">
       <div className="mx-auto flex max-w-[85rem] flex-col items-start justify-between gap-8 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:py-20">
         <div className="reveal">
-          <h2 className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
+          <h2 className="text-[1.75rem] font-extrabold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             Попробуйте нашу автохимию бесплатно
           </h2>
-          <p className="mt-4 max-w-lg text-[17px] leading-relaxed text-ink/80">
+          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-ink/80 sm:text-[17px]">
             Предоставим образцы под вашу воду и оборудование, чтобы вы лично
             убедились в качестве — ещё до первого заказа.
           </p>

@@ -11,12 +11,12 @@ export default function Wholesale() {
               Оптовым партнёрам
             </span>
           </div>
-          <h2 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+          <h2 className="text-[1.75rem] font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             Сильнее вместе.
             <br />
             Растём вместе.
           </h2>
-          <p className="mt-6 max-w-md text-[16px] leading-relaxed text-white/65">
+          <p className="mt-6 max-w-md text-[14px] leading-relaxed text-white/65 sm:text-[16px]">
             Поддержка, которая помогает вашей мойке зарабатывать больше:
             подберём химию под ваше оборудование и воду, поможем настроить
             нормы разведения.

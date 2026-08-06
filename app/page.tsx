@@ -4,7 +4,7 @@ import TrustBadges from "@/components/TrustBadges";
 import BeforeAfter from "@/components/BeforeAfter";
 import Media from "@/components/Media";
 import Geography from "@/components/Geography";
-import Products from "@/components/Products";
+import Catalog from "@/components/Catalog";
 import Comparison from "@/components/Comparison";
 import HowWeWork from "@/components/HowWeWork";
 import Wholesale from "@/components/Wholesale";
@@ -25,7 +25,7 @@ export default function Home() {
         <Hero />
         <TrustBadges />
         <BeforeAfter />
-        <Products />
+        <Catalog />
         <Comparison />
         <HowWeWork />
         <Wholesale />

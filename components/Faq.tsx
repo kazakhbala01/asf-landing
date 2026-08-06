@@ -32,7 +32,7 @@ const faq = [
 export default function Faq() {
   return (
     <section id="faq" className="border-b border-line bg-soft">
-      <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:py-20">
+      <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr]">
           <div className="reveal">
             <div className="mb-4 flex items-center gap-3">
@@ -41,24 +41,24 @@ export default function Faq() {
                 Вопросы и ответы
               </span>
             </div>
-            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h2 className="text-[1.75rem] font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
               ЧАСТЫЕ ВОПРОСЫ
             </h2>
-            <p className="mt-4 max-w-xs text-[16px] leading-relaxed text-muted">
+            <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted sm:text-[16px]">
               Не нашли ответ — напишите нам в WhatsApp, отвечаем быстро.
             </p>
           </div>
 
           <div className="reveal">
             {faq.map((item) => (
-              <details key={item.q} className="group border-b border-line py-5 first:pt-0">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-[17px] font-bold [&::-webkit-details-marker]:hidden">
+              <details key={item.q} className="group border-b border-line py-4 first:pt-0 sm:py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-[15px] font-bold sm:text-[17px] [&::-webkit-details-marker]:hidden">
                   {item.q}
                   <span className="shrink-0 text-3xl font-light leading-none text-amber transition-transform duration-200 group-open:rotate-45">
                     +
                   </span>
                 </summary>
-                <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted">
+                <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-muted sm:text-[15px]">
                   {item.a}
                 </p>
               </details>

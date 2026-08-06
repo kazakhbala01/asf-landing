@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { categories, products, contacts } from "@/lib/products";
+import { categories, contacts } from "@/lib/products";
 
 const companyLinks = [
   { href: "#how-we-work", label: "Как мы работаем" },
@@ -58,7 +58,7 @@ export default function Footer() {
                 {categories.map((cat) => (
                   <li key={cat.id}>
                     <a
-                      href={`#${products.find((p) => p.category === cat.id)?.id}`}
+                      href="#products"
                       className="text-[14px] text-white/80 transition-colors hover:text-amber"
                     >
                       {cat.title}

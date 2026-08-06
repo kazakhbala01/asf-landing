@@ -67,7 +67,7 @@ export default function Media() {
 
   return (
     <section id="media" className="border-b border-line bg-soft">
-      <div className="mx-auto max-w-[85rem] px-4 pt-14 sm:px-6 lg:pt-20">
+      <div className="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 sm:pt-14 lg:pt-20">
         <div className="reveal mb-8 flex items-end justify-between gap-4">
           <div>
             <div className="mb-4 flex items-center gap-3">
@@ -76,7 +76,7 @@ export default function Media() {
                 Медиа
               </span>
             </div>
-            <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h2 className="text-[1.75rem] font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
               ASF В ДЕЛЕ
             </h2>
           </div>
@@ -85,7 +85,7 @@ export default function Media() {
               type="button"
               onClick={() => scrollByCards(-1)}
               aria-label="Назад"
-              className="flex h-12 w-12 items-center justify-center border border-ink/25 transition-colors hover:border-ink hover:bg-ink hover:text-white"
+              className="flex h-10 w-10 items-center justify-center border border-ink/25 sm:h-12 sm:w-12 transition-colors hover:border-ink hover:bg-ink hover:text-white"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
                 <path d="M15 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -95,7 +95,7 @@ export default function Media() {
               type="button"
               onClick={() => scrollByCards(1)}
               aria-label="Вперёд"
-              className="flex h-12 w-12 items-center justify-center bg-amber text-ink transition-colors hover:bg-amber-dark"
+              className="flex h-10 w-10 items-center justify-center bg-amber text-ink sm:h-12 sm:w-12 transition-colors hover:bg-amber-dark"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
                 <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -114,9 +114,9 @@ export default function Media() {
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
         onClickCapture={onClickCapture}
-        className="cursor-grab select-none overflow-x-auto pb-14 active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="cursor-grab select-none overflow-x-auto pb-10 active:cursor-grabbing sm:pb-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        <div className="flex h-[420px] gap-3 pl-4 pr-14 sm:h-[460px] sm:pl-6 lg:h-[500px] lg:pl-10 lg:pr-[12vw]">
+        <div className="flex h-[330px] gap-3 pl-4 pr-14 sm:h-[460px] sm:pl-6 lg:h-[500px] lg:pl-10 lg:pr-[12vw]">
           {items.map((item) => (
             <MediaCard key={item.src} item={item} onOpen={setActive} />
           ))}
