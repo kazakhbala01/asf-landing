@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-soft">
       {/* фоновое фото с растворением в белый слева, сдвинуто вправо */}
       <div className="absolute inset-0">
-        <div className="absolute inset-y-0 -left-[6%] right-0">
+        <div className="absolute inset-y-0 -left-[14%] right-0">
           <Image
             src="/photos/hero-foam.jpg"
             alt="Автомобиль в густой активной пене ASF"
@@ -26,7 +26,7 @@ export default function Hero() {
         </div>
         {/* лёгкое затемнение фото справа */}
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0)_42%,rgba(0,0,0,0.30)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#f7f6f3_0%,#f7f6f3_30%,rgba(247,246,243,0.75)_47%,rgba(247,246,243,0.15)_64%,rgba(247,246,243,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,#f7f6f3_0%,#f7f6f3_29%,rgba(247,246,243,0.72)_45%,rgba(247,246,243,0.12)_61%,rgba(247,246,243,0)_100%)]" />
         {/* на мобильных забеливаем сильнее, чтобы текст читался */}
         <div className="absolute inset-0 bg-soft/75 sm:hidden" />
       </div>

@@ -24,7 +24,7 @@ export default function MediaCard({ src, label }: { src: string; label: string }
       type="button"
       onClick={toggle}
       aria-label={playing ? `Пауза: ${label}` : `Смотреть: ${label}`}
-      className="group relative aspect-[9/16] h-full shrink-0 snap-start overflow-hidden bg-ink text-left"
+      className="group relative aspect-[9/16] h-full shrink-0 overflow-hidden bg-ink text-left"
     >
       <video
         ref={ref}
