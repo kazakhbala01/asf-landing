@@ -27,9 +27,10 @@ npx vercel
 
 Два вида заглушек:
 
-**Канистры продуктов** — SVG (компонент `components/Canister.tsx`):
-1. Положите фото в `public/products/`, имя файла = `id` продукта из `lib/products.ts` (например, `public/products/pink-active.png`). Фон белый или прозрачный, пропорции ~3:4.
-2. В `components/Products.tsx` и `components/Hero.tsx` замените `<Canister …/>` на `<Image src={/products/${product.id}.png} …/>` (импорт из `next/image`).
+**Фото продуктов** — уже стоят реальные снимки в `public/products/<id>.jpg` (13 из 14 позиций).
+Чтобы добавить/заменить: положите фото на белом фоне в `public/products/<id>.jpg` (пропорции ~16:9,
+товар по центру) и укажите путь в поле `image` продукта в `lib/products.ts`.
+Без `image` рисуется SVG-канистра (`components/Canister.tsx`) — сейчас так у `motor-cleaner`.
 
 **Фото-слоты** (компонент `components/Photo.tsx`, серые блоки с подписью) — заменить на `<Image>` с тем же `className`:
 - Hero: авто в активной пене — `components/Hero.tsx`
@@ -41,7 +42,7 @@ npx vercel
 
 | Блок | Что нужно от клиента | Где в коде |
 |---|---|---|
-| До/После | 2+ пары фото (грязный/чистый авто) | `components/BeforeAfter.tsx` |
+| ~~До/После~~ | ✅ реальная пара Audi Q7 (в пене / после мойки) | `components/BeforeAfter.tsx` — можно добавить ещё пары |
 | ~~Видео~~ | ✅ реальные видео и креативы стоят в ленте «ASF в деле» | `components/Media.tsx` (ещё 9 видео и 11 креативов в `Desktop\creative` — можно добавить) |
 | География | реальный список городов поставок | `components/Geography.tsx` (сейчас примерные) |
 | Отзывы | фото клиентов, названия моек, города | `components/Testimonials.tsx` |

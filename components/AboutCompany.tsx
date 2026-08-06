@@ -4,7 +4,7 @@ const numbers = [
   { value: "2020", label: "основано производство химии" },
   { value: "2024", label: "запуск направления автохимии ASF" },
   { value: "3000+", label: "кг продукции в сутки" },
-  { value: "12", label: "продуктов собственной разработки" },
+  { value: "14", label: "продуктов собственной разработки" },
 ];
 
 export default function AboutCompany() {

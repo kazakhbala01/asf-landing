@@ -85,16 +85,6 @@ export default function Hero() {
           </ul>
         </div>
 
-        {/* мобильный вариант фото: под текстом, целиком, без вуали */}
-        <Image
-          src="/photos/hero-foam.jpg"
-          alt="Автомобиль в густой активной пене ASF"
-          width={1408}
-          height={768}
-          priority
-          sizes="100vw"
-          className="mt-8 h-auto w-full lg:hidden"
-        />
       </div>
     </section>
   );

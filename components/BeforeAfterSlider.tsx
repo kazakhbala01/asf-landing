@@ -7,13 +7,21 @@ type Props = {
   before: string;
   after: string;
   alt: string;
+  beforeLabel?: string;
+  afterLabel?: string;
 };
 
 /**
  * Слайдер «до/после»: ползунок-шторка. Управляется мышью, пальцем и
  * клавиатурой (прозрачный range поверх всей области).
  */
-export default function BeforeAfterSlider({ before, after, alt }: Props) {
+export default function BeforeAfterSlider({
+  before,
+  after,
+  alt,
+  beforeLabel = "ДО",
+  afterLabel = "ПОСЛЕ",
+}: Props) {
   const [pos, setPos] = useState(50);
 
   return (
@@ -41,11 +49,11 @@ export default function BeforeAfterSlider({ before, after, alt }: Props) {
       </div>
 
       {/* плашки */}
-      <span className="pointer-events-none absolute left-4 top-4 bg-ink px-2.5 py-1 text-[11px] font-bold tracking-caps text-white">
-        ДО
+      <span className="pointer-events-none absolute left-3 top-3 bg-ink px-2.5 py-1 text-[10px] font-bold tracking-caps text-white sm:left-4 sm:top-4 sm:text-[11px]">
+        {beforeLabel}
       </span>
-      <span className="pointer-events-none absolute right-4 top-4 bg-amber px-2.5 py-1 text-[11px] font-bold tracking-caps text-ink">
-        ПОСЛЕ
+      <span className="pointer-events-none absolute right-3 top-3 bg-amber px-2.5 py-1 text-[10px] font-bold tracking-caps text-ink sm:right-4 sm:top-4 sm:text-[11px]">
+        {afterLabel}
       </span>
 
       {/* шторка */}

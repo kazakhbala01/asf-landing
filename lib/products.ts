@@ -13,7 +13,10 @@ export type Product = {
   /** полное описание — в модальном окне */
   description: string;
   volumes: string[];
+  /** пустой массив — норму подбирает технолог (нет данных в каталоге) */
   dilutions: Dilution[];
+  /** реальное фото продукта в public/products; без него рисуется SVG-канистра */
+  image?: string;
   /** canister accent color (brand palette only) */
   accent: string;
   bestseller?: boolean;
@@ -58,7 +61,7 @@ export const categories: {
   {
     id: "care",
     title: "ASF Care",
-    tagline: "Уход за экстерьером — шины и моторный отсек",
+    tagline: "Уход за экстерьером — шины, кузов, моторный отсек",
     accent: AMBER,
   },
 ];
@@ -83,7 +86,7 @@ export const groups: {
     title: "Косметика и уход",
     tagline: "Салон, шины и моторный отсек",
     categories: ["interior", "care"],
-    featured: ["polyrole-gloss", "black-tire", "motor-cleaner"],
+    featured: ["polyrole-gloss", "black-tire", "hydro-shield"],
   },
 ];
 
@@ -101,6 +104,7 @@ export const products: Product[] = [
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Содержит антикоррозийные добавки для защиты ЛКП. Образует плотную активную пену насыщенного розового цвета.",
     volumes: ["1 л", "5 кг", "20 кг"],
     dilutions: [{ method: "Пеногенератор", value: "1:6 – 1:9" }],
+    image: "/products/pink-active.jpg",
     accent: PINK,
     bestseller: true,
   },
@@ -113,6 +117,7 @@ export const products: Product[] = [
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Образует густую, устойчивую пену. Удаляет все виды загрязнений. Имеет насыщенный розовый цвет.",
     volumes: ["1 л", "5 кг", "20 кг"],
     dilutions: [{ method: "Пенокомплект", value: "1:6 – 1:9" }],
+    image: "/products/pink-soft.jpg",
     accent: PINK,
   },
   {
@@ -124,6 +129,7 @@ export const products: Product[] = [
       "Обеспечивает качественную и бережную мойку. Безопасен для ЛКП. Идеально подходит для мойки легковых и грузовых автомобилей. Обладает глубоким розовым цветом.",
     volumes: ["1 л", "5 кг", "20 кг"],
     dilutions: [{ method: "Дозатрон", value: "1–2 %" }],
+    image: "/products/pink-force.jpg",
     accent: PINK,
     bestseller: true,
   },
@@ -140,6 +146,7 @@ export const products: Product[] = [
       { method: "Пеногенератор", value: "1:60 – 1:120" },
       { method: "Дозатрон", value: "0,6–1,2 %" },
     ],
+    image: "/products/storm.jpg",
     accent: AMBER,
     bestseller: true,
   },
@@ -156,6 +163,7 @@ export const products: Product[] = [
       { method: "Пеногенератор", value: "1:100 – 1:200" },
       { method: "Дозатрон", value: "1–2 %" },
     ],
+    image: "/products/strong.jpg",
     accent: AMBER,
   },
   {
@@ -171,6 +179,7 @@ export const products: Product[] = [
       { method: "Пеногенератор", value: "1:70 – 1:110" },
       { method: "Дозатрон", value: "1–2 %" },
     ],
+    image: "/products/autogleam-prime.jpg",
     accent: VIOLET,
   },
   {
@@ -186,6 +195,7 @@ export const products: Product[] = [
       { method: "Пеногенератор", value: "1:50 – 1:110" },
       { method: "Дозатрон", value: "1,5–2 %" },
     ],
+    image: "/products/autogleam-ultra.jpg",
     accent: VIOLET,
   },
   {
@@ -201,6 +211,20 @@ export const products: Product[] = [
       { method: "Пеногенератор", value: "1:80 – 1:120" },
       { method: "Дозатрон", value: "1–2 %" },
     ],
+    image: "/products/autogleam-dozatron.jpg",
+    accent: VIOLET,
+  },
+  {
+    id: "autogleam-premium",
+    name: "AutoGleam Premium",
+    category: "autogleam",
+    short: "Топовый AutoGleam — быстрое смывание и сушка",
+    description:
+      "Профессиональный концентрат для бесконтактной мойки. Бережен к лакокрасочному покрытию, содержит ингибитор коррозии, обеспечивает эффективное очищение, быстрое смывание и сушку. PH 12.",
+    volumes: ["1 кг", "5 кг", "20 кг"],
+    // норм разведения в каталоге нет — подбирает технолог
+    dilutions: [],
+    image: "/products/autogleam-premium.jpg",
     accent: VIOLET,
   },
   {
@@ -213,6 +237,7 @@ export const products: Product[] = [
       "Полироль для пластика салона. Препятствует оседанию пыли. Не оставляет жирных следов. Придаёт глянцевый блеск.",
     volumes: ["0,5 л", "1 л", "5 кг"],
     dilutions: [{ method: "Готов к применению", value: "—" }],
+    image: "/products/polyrole-gloss.jpg",
     accent: AMBER,
     bestseller: true,
   },
@@ -226,6 +251,7 @@ export const products: Product[] = [
       "Полироль для пластика салона. Препятствует оседанию пыли. Не оставляет жирных следов. Придаёт матовый эффект.",
     volumes: ["0,5 л", "1 л", "5 кг"],
     dilutions: [{ method: "Готов к применению", value: "—" }],
+    image: "/products/polyrole-matte.jpg",
     accent: VIOLET,
   },
   {
@@ -238,7 +264,23 @@ export const products: Product[] = [
       "Восстанавливает первоначальный глубокий чёрный цвет, придаёт блеск, улучшает внешний вид резины. Защищает резину от растрескивания.",
     volumes: ["0,5 л", "1 л", "5 кг"],
     dilutions: [{ method: "Разведение с водой", value: "1:1 – 1:5" }],
+    image: "/products/black-tire.jpg",
     accent: VIOLET,
+    bestseller: true,
+  },
+  {
+    id: "hydro-shield",
+    name: "ASF Hydro Shield",
+    nameRu: "Воск-полироль",
+    category: "care",
+    short: "Блеск кузова и защита после мойки",
+    description:
+      "Средство для финишной обработки кузова: освежает внешний вид, придаёт блеск, полирует и защищает от внешних воздействий и окружающей среды.",
+    volumes: ["1 л", "5 кг"],
+    // норм разведения в каталоге нет — подбирает технолог
+    dilutions: [],
+    image: "/products/hydro-shield.jpg",
+    accent: PINK,
     bestseller: true,
   },
   {

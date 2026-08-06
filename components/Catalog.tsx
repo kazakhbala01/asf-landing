@@ -14,13 +14,46 @@ function onAccent(hex: string) {
 
 const catOf = (p: Product) => categories.find((c) => c.id === p.category)!;
 
+/** фото продукта или SVG-канистра, если фото ещё нет */
+function ProductShot({
+  product,
+  className,
+  sizes = "320px",
+}: {
+  product: Product;
+  className: string;
+  sizes?: string;
+}) {
+  if (product.image) {
+    return (
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={1200}
+        height={680}
+        sizes={sizes}
+        draggable={false}
+        className={`object-contain ${className}`}
+      />
+    );
+  }
+  return (
+    <Canister
+      name={product.name.replace("ASF ", "")}
+      accent={product.accent}
+      sub={product.nameRu ?? "Professional"}
+      className={className}
+    />
+  );
+}
+
 function PriceButton({ product, className = "" }: { product: Product; className?: string }) {
   return (
     <a
       href={waLink(`Здравствуйте! Интересует ${product.name} — подскажите цену.`)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block bg-amber py-3 text-center text-[12px] font-bold tracking-caps uppercase text-ink transition-colors hover:bg-amber-dark ${className}`}
+      className={`block bg-amber py-3 text-center text-[12px] font-bold tracking-caps uppercase text-ink transition-colors hover:bg-amber-dark lg:py-3.5 lg:text-[13px] ${className}`}
     >
       Получить цену
     </a>
@@ -30,55 +63,59 @@ function PriceButton({ product, className = "" }: { product: Product; className?
 function Card({ product, onDetails }: { product: Product; onDetails: () => void }) {
   const cat = catOf(product);
   return (
-    <article className="reveal flex flex-row border border-line bg-paper sm:flex-col">
-      <div
-        className="flex w-[104px] shrink-0 items-center justify-center border-r border-line py-4 sm:w-auto sm:border-r-0 sm:border-b sm:py-7"
-        style={{ backgroundColor: `${product.accent}0d` }}
-      >
-        <Canister
-          name={product.name.replace("ASF ", "")}
-          accent={product.accent}
-          sub={product.nameRu ?? "Professional"}
-          className="h-24 w-[68px] sm:h-40 sm:w-32"
+    <article className="reveal group flex flex-row border border-line bg-paper transition-shadow hover:shadow-[0_4px_24px_rgba(0,0,0,0.07)] sm:flex-col">
+      {/* цветная метка линейки */}
+      <span
+        className="w-1 shrink-0 sm:h-1 sm:w-auto"
+        style={{ backgroundColor: product.accent }}
+      />
+      <div className="flex w-[132px] shrink-0 items-center justify-center border-r border-line bg-white p-2 sm:w-auto sm:border-r-0 sm:border-b sm:p-5">
+        <ProductShot
+          product={product}
+          sizes="(min-width: 1024px) 380px, 200px"
+          className="h-28 w-full sm:h-44 lg:h-56"
         />
       </div>
-      <div className="flex flex-1 flex-col p-4 sm:p-5">
+      <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
         <div className="flex items-center gap-2">
           <span
             className="h-2 w-2 shrink-0 rounded-full"
             style={{ backgroundColor: product.accent }}
           />
-          <span className="text-[10px] font-bold tracking-caps uppercase text-muted">
+          <span className="text-[10px] font-bold tracking-caps uppercase text-muted lg:text-[11px]">
             {cat.title}
           </span>
           {product.bestseller && (
             <span
-              className="ml-auto px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase"
+              className="ml-auto px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase lg:text-[10px]"
               style={{ backgroundColor: product.accent, color: onAccent(product.accent) }}
             >
               Хит
             </span>
           )}
         </div>
-        <h3 className="mt-2 text-[15px] font-bold uppercase leading-tight tracking-wide sm:text-[16px]">
+        <h3 className="mt-2 text-[15px] font-bold uppercase leading-tight tracking-wide sm:text-[16px] lg:text-[18px]">
           {product.name}
         </h3>
-        <p className="mt-1.5 flex-1 text-[13px] leading-snug text-muted sm:text-[14px]">
+        <p className="mt-1.5 flex-1 text-[13px] leading-snug text-muted sm:text-[14px] lg:mt-2 lg:text-[15px]">
           {product.short}
         </p>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <div className="mt-3 flex flex-wrap gap-1.5 lg:mt-4">
           {product.volumes.map((v) => (
-            <span key={v} className="border border-line px-2 py-1 text-[11px] font-semibold">
+            <span
+              key={v}
+              className="border border-line px-2 py-1 text-[11px] font-semibold lg:px-2.5 lg:text-[12px]"
+            >
               {v}
             </span>
           ))}
         </div>
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 lg:mt-5">
           <PriceButton product={product} className="flex-1 whitespace-nowrap px-3" />
           <button
             type="button"
             onClick={onDetails}
-            className="shrink-0 text-left text-[12px] font-semibold tracking-caps uppercase text-muted transition-colors hover:text-ink sm:text-center"
+            className="shrink-0 text-left text-[12px] font-semibold tracking-caps uppercase text-muted transition-colors hover:text-ink sm:text-center lg:text-[13px]"
           >
             Детали →
           </button>
@@ -88,13 +125,7 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
   );
 }
 
-function Modal({
-  groupId,
-  onClose,
-}: {
-  groupId: "foam" | "care";
-  onClose: () => void;
-}) {
+function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => void }) {
   const group = groups.find((g) => g.id === groupId)!;
 
   useEffect(() => {
@@ -116,7 +147,7 @@ function Modal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex max-h-[92vh] w-full max-w-4xl flex-col bg-paper sm:max-h-[88vh]"
+        className="flex max-h-[92vh] w-full max-w-5xl flex-col bg-paper sm:max-h-[88vh]"
       >
         <header className="flex items-start justify-between gap-4 border-b border-line px-4 py-4 sm:px-7 sm:py-5">
           <div>
@@ -160,21 +191,17 @@ function Modal({
                   {items.map((p) => (
                     <div
                       key={p.id}
-                      className="grid grid-cols-[64px_1fr] gap-4 border-b border-line pb-5 last:border-0 last:pb-0 sm:grid-cols-[88px_1fr_200px] sm:gap-6"
+                      className="grid grid-cols-[76px_1fr] gap-4 border-b border-line pb-5 last:border-0 last:pb-0 sm:grid-cols-[150px_1fr_210px] sm:gap-6"
                     >
-                      <div
-                        className="flex items-start justify-center py-2"
-                        style={{ backgroundColor: `${p.accent}0d` }}
-                      >
-                        <Canister
-                          name={p.name.replace("ASF ", "")}
-                          accent={p.accent}
-                          sub={p.nameRu ?? "Professional"}
-                          className="h-20 w-14 sm:h-28 sm:w-20"
+                      <div className="flex items-start justify-center bg-white py-1">
+                        <ProductShot
+                          product={p}
+                          sizes="150px"
+                          className="h-20 w-full sm:h-28"
                         />
                       </div>
                       <div>
-                        <h4 className="text-[14px] font-bold uppercase leading-tight tracking-wide">
+                        <h4 className="text-[14px] font-bold uppercase leading-tight tracking-wide sm:text-[15px]">
                           {p.name}
                         </h4>
                         {p.nameRu && (
@@ -182,7 +209,7 @@ function Modal({
                             {p.nameRu}
                           </p>
                         )}
-                        <p className="mt-2 text-[13px] leading-relaxed text-muted">
+                        <p className="mt-2 text-[13px] leading-relaxed text-muted sm:text-[14px]">
                           {p.description}
                         </p>
                         <div className="mt-3 flex flex-wrap gap-1.5">
@@ -200,21 +227,30 @@ function Modal({
                         </div>
                       </div>
                       <div className="col-span-2 sm:col-span-1">
-                        <table className="w-full text-[12.5px]">
-                          <caption className="pb-1 text-left text-[10px] font-bold tracking-caps uppercase text-muted">
-                            Нормы разведения
-                          </caption>
-                          <tbody>
-                            {p.dilutions.map((d) => (
-                              <tr key={d.method} className="border-b border-line last:border-0">
-                                <td className="py-1.5 pr-2 text-muted">{d.method}</td>
-                                <td className="py-1.5 text-right font-bold tabular-nums">
-                                  {d.value}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
+                        {p.dilutions.length > 0 ? (
+                          <table className="w-full text-[12.5px]">
+                            <caption className="pb-1 text-left text-[10px] font-bold tracking-caps uppercase text-muted">
+                              Нормы разведения
+                            </caption>
+                            <tbody>
+                              {p.dilutions.map((d) => (
+                                <tr key={d.method} className="border-b border-line last:border-0">
+                                  <td className="py-1.5 pr-2 text-muted">{d.method}</td>
+                                  <td className="py-1.5 text-right font-bold tabular-nums">
+                                    {d.value}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        ) : (
+                          <p className="text-[12.5px] leading-snug text-muted">
+                            <span className="block pb-1 text-[10px] font-bold tracking-caps uppercase">
+                              Нормы разведения
+                            </span>
+                            Подберём под ваше оборудование и воду — напишите нам.
+                          </p>
+                        )}
                         <div className="mt-3 hidden sm:block">
                           <PriceButton product={p} />
                         </div>
@@ -237,7 +273,7 @@ export default function Catalog() {
   return (
     <section id="products" className="border-b border-line">
       <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
-        <div className="reveal mb-8 grid gap-6 lg:mb-12 lg:grid-cols-[1fr_1.15fr] lg:items-end lg:gap-10">
+        <div className="reveal mb-8 grid gap-6 lg:mb-14 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-12">
           <div>
             <div className="mb-3 flex items-center gap-3 sm:mb-4">
               <span className="h-0.5 w-8 bg-amber" />
@@ -248,19 +284,43 @@ export default function Catalog() {
             <h2 className="text-[1.75rem] font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
               НАША ПРОДУКЦИЯ
             </h2>
-            <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted sm:mt-4 sm:text-[16px]">
+            <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted sm:mt-4 sm:text-[16px] lg:text-[17px]">
               Концентраты для бесконтактной мойки, ухода за салоном и внешним
               видом авто. Фасовка от 0,5 л до 20 кг.
             </p>
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+              {[
+                { v: String(products.length), l: "продуктов" },
+                { v: "5", l: "линеек" },
+                { v: "1:200", l: "разведение" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <p className="text-2xl font-extrabold tracking-tight lg:text-3xl">
+                    {s.v}
+                    <span className="text-amber">.</span>
+                  </p>
+                  <p className="text-[12px] text-muted">{s.l}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <Image
-            src="/photos/products-wide.jpg"
-            alt="Линейка продукции ASF Car Wash Chemicals"
-            width={1536}
-            height={690}
-            sizes="(min-width: 1024px) 660px, 100vw"
-            className="h-auto w-full"
-          />
+
+          {/* фото линейки: рамка + подпись поверх, чтобы не выглядело вырезкой */}
+          <figure className="relative">
+            <Image
+              src="/photos/products-wide.jpg"
+              alt="Линейка продукции ASF Car Wash Chemicals"
+              width={1536}
+              height={690}
+              sizes="(min-width: 1024px) 700px, 100vw"
+              className="h-auto w-full"
+            />
+            <span className="absolute -bottom-px left-0 flex items-center gap-2 bg-ink px-3 py-2 text-[10px] font-bold tracking-caps uppercase text-white sm:px-4 sm:text-[11px]">
+              <span className="h-1.5 w-1.5 bg-amber" />
+              Собственное производство · Астана
+            </span>
+            <span className="absolute -right-0 -top-0 hidden h-16 w-16 border-r-2 border-t-2 border-amber lg:block" />
+          </figure>
         </div>
 
         {groups.map((group) => {
@@ -270,23 +330,23 @@ export default function Catalog() {
           const total = products.filter((p) => group.categories.includes(p.category)).length;
 
           return (
-            <div key={group.id} className="mb-10 last:mb-0 lg:mb-14">
-              <div className="reveal mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-line pb-3">
+            <div key={group.id} className="mb-10 last:mb-0 lg:mb-16">
+              <div className="reveal mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-line pb-3 lg:mb-7">
                 <div>
-                  <h3 className="text-[17px] font-extrabold tracking-caps uppercase sm:text-[19px]">
+                  <h3 className="text-[17px] font-extrabold tracking-caps uppercase sm:text-[19px] lg:text-[22px]">
                     {group.title}
-                    <span className="ml-2 text-[13px] font-semibold text-muted">
+                    <span className="ml-2 text-[13px] font-semibold text-muted lg:text-[14px]">
                       {total} позиций
                     </span>
                   </h3>
-                  <p className="mt-1 text-[13px] text-muted sm:text-[14px]">
+                  <p className="mt-1 text-[13px] text-muted sm:text-[14px] lg:text-[15px]">
                     {group.tagline}
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setOpen(group.id)}
-                  className="flex items-center gap-2 border border-ink px-5 py-3 text-[12px] font-bold tracking-caps uppercase transition-colors hover:bg-ink hover:text-white"
+                  className="flex items-center gap-2 border border-ink px-5 py-3 text-[12px] font-bold tracking-caps uppercase transition-colors hover:bg-ink hover:text-white lg:px-7 lg:py-4 lg:text-[13px]"
                 >
                   Весь каталог
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
@@ -295,7 +355,7 @@ export default function Catalog() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-5">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-5 lg:gap-6">
                 {featured.map((p) => (
                   <Card key={p.id} product={p} onDetails={() => setOpen(group.id)} />
                 ))}

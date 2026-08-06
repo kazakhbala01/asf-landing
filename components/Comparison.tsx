@@ -54,8 +54,31 @@ export default function Comparison() {
           </h2>
         </div>
 
-        <div className="reveal overflow-x-auto">
-          <table className="w-full min-w-[640px] border-collapse bg-paper text-[15px]">
+        {/* мобильный вариант: компактные карточки вместо прокручиваемой таблицы */}
+        <div className="reveal space-y-3 sm:hidden">
+          {rows.map((r) => (
+            <div key={r.label} className="border border-line bg-paper">
+              <p className="border-b border-line px-3 py-2 text-[12px] font-bold tracking-caps uppercase">
+                {r.label}
+              </p>
+              <div className="flex items-start gap-2 bg-amber/10 px-3 py-2.5">
+                <span className="mt-0.5 text-[10px] font-extrabold tracking-caps text-amber-dark">
+                  ASF
+                </span>
+                <p className="flex-1 text-[13px] font-semibold leading-snug">{r.asf}</p>
+              </div>
+              <div className="flex items-start gap-2 px-3 py-2.5">
+                <span className="mt-0.5 text-[10px] font-bold tracking-caps text-muted">
+                  ДР.
+                </span>
+                <p className="flex-1 text-[13px] leading-snug text-muted">{r.others}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="reveal hidden overflow-x-auto sm:block">
+          <table className="w-full border-collapse bg-paper text-[15px]">
             <thead>
               <tr className="border-b-2 border-ink">
                 <th className="w-[28%] px-5 py-4 text-left text-[12px] font-bold tracking-caps uppercase text-muted"></th>
