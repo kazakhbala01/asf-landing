@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-soft">
       {/* фоновое фото с растворением в белый слева, сдвинуто вправо */}
       <div className="absolute inset-0">
-        <div className="absolute inset-y-0 -left-[14%] right-0">
+        <div className="absolute inset-y-0 left-[8%] -right-[8%]">
           <Image
             src="/photos/hero-foam.jpg"
             alt="Автомобиль в густой активной пене ASF"

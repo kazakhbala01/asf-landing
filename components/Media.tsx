@@ -1,14 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import MediaCard from "./MediaCard";
+import { useEffect, useRef, useState } from "react";
+import MediaCard, { type MediaItem } from "./MediaCard";
 
 // Реальные видео и креативы компании (из папки creative, WhatsApp-исходники).
-const items: (
-  | { type: "video"; src: string; label: string }
-  | { type: "image"; src: string; label: string }
-)[] = [
+const items: MediaItem[] = [
   { type: "video", src: "/media/video-1.mp4", label: "Работа пены" },
   { type: "image", src: "/media/creative-1.jpg", label: "Тестируем каждую партию" },
   { type: "video", src: "/media/video-2.mp4", label: "Мойка авто" },
@@ -23,8 +19,21 @@ const items: (
 
 export default function Media() {
   const strip = useRef<HTMLDivElement>(null);
-  // перетаскивание мышью: после реального drag гасим клик, чтобы видео не запускалось
+  // перетаскивание мышью: после реального drag гасим клик, чтобы просмотр не открывался
   const drag = useRef({ down: false, startX: 0, scrollLeft: 0, moved: false });
+  const [active, setActive] = useState<MediaItem | null>(null);
+
+  // Esc закрывает просмотр, скролл страницы блокируется
+  useEffect(() => {
+    if (!active) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [active]);
 
   const scrollByCards = (dir: 1 | -1) => {
     strip.current?.scrollBy({ left: dir * strip.current.clientWidth * 0.7, behavior: "smooth" });
@@ -59,7 +68,7 @@ export default function Media() {
   return (
     <section id="media" className="border-b border-line bg-soft">
       <div className="mx-auto max-w-[85rem] px-4 pt-14 sm:px-6 lg:pt-20">
-        <div className="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
+        <div className="reveal mb-8 flex items-end justify-between gap-4">
           <div>
             <div className="mb-4 flex items-center gap-3">
               <span className="h-0.5 w-8 bg-amber" />
@@ -71,7 +80,7 @@ export default function Media() {
               ASF В ДЕЛЕ
             </h2>
           </div>
-          <div className="flex gap-2">
+          <div className="flex shrink-0 gap-2">
             <button
               type="button"
               onClick={() => scrollByCards(-1)}
@@ -96,7 +105,8 @@ export default function Media() {
         </div>
       </div>
 
-      {/* лента: стрелки, колесо, тач-свайп и перетаскивание мышью */}
+      {/* лента: стрелки, колесо, тач-свайп и перетаскивание мышью;
+          старт чуть левее контейнера, в конце — воздух, чтобы был виден финал */}
       <div
         ref={strip}
         onPointerDown={onPointerDown}
@@ -106,28 +116,57 @@ export default function Media() {
         onClickCapture={onClickCapture}
         className="cursor-grab select-none overflow-x-auto pb-14 active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        <div className="flex h-[440px] gap-3 px-4 sm:px-6 lg:h-[500px] lg:px-[max(1rem,calc((100vw-85rem)/2+1.5rem))]">
-          {items.map((item) =>
-            item.type === "video" ? (
-              <MediaCard key={item.src} src={item.src} label={item.label} />
-            ) : (
-              <figure
-                key={item.src}
-                className="relative aspect-[9/16] h-full shrink-0 overflow-hidden bg-ink"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.label}
-                  fill
-                  sizes="300px"
-                  draggable={false}
-                  className="object-cover"
-                />
-              </figure>
-            )
-          )}
+        <div className="flex h-[420px] gap-3 pl-4 pr-14 sm:h-[460px] sm:pl-6 lg:h-[500px] lg:pl-10 lg:pr-[12vw]">
+          {items.map((item) => (
+            <MediaCard key={item.src} item={item} onOpen={setActive} />
+          ))}
         </div>
       </div>
+
+      {/* полноэкранный просмотр */}
+      {active && (
+        <div
+          onClick={() => setActive(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-3 sm:p-8"
+          role="dialog"
+          aria-label={active.label}
+        >
+          <button
+            type="button"
+            onClick={() => setActive(null)}
+            aria-label="Закрыть"
+            className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-amber hover:text-ink"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+            </svg>
+          </button>
+          <figure
+            onClick={(e) => e.stopPropagation()}
+            className="flex max-h-full flex-col items-center"
+          >
+            {active.type === "video" ? (
+              <video
+                src={active.src}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[82vh] max-w-[94vw] bg-black sm:max-h-[84vh]"
+              />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={active.src}
+                alt={active.label}
+                className="max-h-[82vh] max-w-[94vw] object-contain sm:max-h-[84vh]"
+              />
+            )}
+            <figcaption className="pt-4 text-center text-[14px] font-bold tracking-caps uppercase text-white/80">
+              {active.label}
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </section>
   );
 }
