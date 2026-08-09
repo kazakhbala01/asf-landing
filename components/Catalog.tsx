@@ -96,8 +96,7 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
         />
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
-        <div className="flex flex-wrap items-center gap-2">
-          <TierBadge product={product} />
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
           <span
             className="h-2 w-2 shrink-0 rounded-full"
             style={{ backgroundColor: product.accent }}
@@ -105,14 +104,17 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
           <span className="text-[10px] font-bold tracking-caps uppercase text-muted lg:text-[11px]">
             {cat.title}
           </span>
-          {product.bestseller && (
-            <span
-              className="ml-auto px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase lg:text-[10px]"
-              style={{ backgroundColor: product.accent, color: onAccent(product.accent) }}
-            >
-              Хит
-            </span>
-          )}
+          <span className="ml-auto flex items-center gap-1.5">
+            <TierBadge product={product} />
+            {product.bestseller && (
+              <span
+                className="px-1.5 py-[3px] text-[9px] font-bold tracking-caps uppercase lg:text-[10px]"
+                style={{ backgroundColor: product.accent, color: onAccent(product.accent) }}
+              >
+                Хит
+              </span>
+            )}
+          </span>
         </div>
         <h3 className="mt-2 text-[15px] font-bold uppercase leading-tight tracking-wide sm:text-[16px] lg:text-[18px]">
           {product.name}
