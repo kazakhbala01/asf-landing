@@ -3,11 +3,21 @@ export type Dilution = {
   value: string;
 };
 
+/** ценовой уровень: старт — рабочая база, оптима — середина, премиум — топ */
+export type Tier = "start" | "optima" | "premium";
+
+export const tiers: Record<Tier, { label: string; hint: string }> = {
+  start: { label: "Старт", hint: "Рабочая химия на каждый день" },
+  optima: { label: "Оптима", hint: "Баланс цены и результата" },
+  premium: { label: "Премиум", hint: "Максимальный результат" },
+};
+
 export type Product = {
   id: string;
   name: string;
   nameRu?: string;
   category: "pink" | "activefoam" | "autogleam" | "interior" | "care";
+  tier: Tier;
   /** короткая суть для карточки в каталоге */
   short: string;
   /** полное описание — в модальном окне */
@@ -77,7 +87,7 @@ export const groups: {
   {
     id: "foam",
     title: "Автошампуни",
-    tagline: "Активная пена для бесконтактной мойки — три ценовых линейки",
+    tagline: "Активная пена для бесконтактной мойки — три ценовых уровня",
     categories: ["pink", "activefoam", "autogleam"],
     featured: ["pink-active", "storm", "autogleam-prime"],
   },
@@ -99,6 +109,7 @@ export const products: Product[] = [
     id: "pink-active",
     name: "ASF Pink Active Foam",
     category: "pink",
+    tier: "premium",
     short: "Плотная розовая пена с защитой ЛКП",
     description:
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Содержит антикоррозийные добавки для защиты ЛКП. Образует плотную активную пену насыщенного розового цвета.",
@@ -112,6 +123,7 @@ export const products: Product[] = [
     id: "pink-soft",
     name: "ASF Pink Soft Active Foam",
     category: "pink",
+    tier: "premium",
     short: "Густая устойчивая пена, все виды загрязнений",
     description:
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Образует густую, устойчивую пену. Удаляет все виды загрязнений. Имеет насыщенный розовый цвет.",
@@ -124,6 +136,7 @@ export const products: Product[] = [
     id: "pink-force",
     name: "ASF Pink Force Active Foam",
     category: "pink",
+    tier: "premium",
     short: "Для легковых и грузовых, безопасен для ЛКП",
     description:
       "Обеспечивает качественную и бережную мойку. Безопасен для ЛКП. Идеально подходит для мойки легковых и грузовых автомобилей. Обладает глубоким розовым цветом.",
@@ -137,6 +150,7 @@ export const products: Product[] = [
     id: "storm",
     name: "Active Foam Storm",
     category: "activefoam",
+    tier: "optima",
     short: "Разработан под жёсткую воду",
     description:
       "Высокоэффективный профессиональный автошампунь, разработанный для работы с жёсткой водой. Образует густую, устойчивую активную пену, эффективно размягчает и удаляет любые виды загрязнений.",
@@ -154,6 +168,7 @@ export const products: Product[] = [
     id: "strong",
     name: "Active Foam Strong",
     category: "activefoam",
+    tier: "optima",
     short: "Самый экономичный — разведение до 1:200",
     description:
       "Высококонцентрированное сильнодействующее средство с отличным пенообразованием, предназначенное для бесконтактной мойки. Благодаря сбалансированной формуле обеспечивает экономичное разведение с водой, без потери моющих качеств.",
@@ -170,6 +185,7 @@ export const products: Product[] = [
     id: "autogleam-prime",
     name: "AutoGleam Prime",
     category: "autogleam",
+    tier: "start",
     short: "Универсальный — легковые и грузовые",
     description:
       "Профессиональное высококонцентрированное средство для бесконтактной мойки любого автотранспорта. Содержит антикоррозийные добавки. Подходит для мойки как легковых, так и грузовых автомобилей. Максимально эффективно показывает себя в жёсткой воде.",
@@ -186,6 +202,7 @@ export const products: Product[] = [
     id: "autogleam-ultra",
     name: "AutoGleam Ultra",
     category: "autogleam",
+    tier: "start",
     short: "Защита кузова от зимних реагентов",
     description:
       "Обеспечивает качественную и бережную мойку. Содержит активные компоненты, предохраняющие кузов от воздействия дорожных реагентов в зимнее время.",
@@ -202,6 +219,7 @@ export const products: Product[] = [
     id: "autogleam-dozatron",
     name: "AutoGleam Dozatron",
     category: "autogleam",
+    tier: "start",
     short: "Для систем дозирования, работает на любой воде",
     description:
       "Профессиональное высококонцентрированное средство, разработанное специально для использования в системах дозирования. Эффективно удаляет самые сложные загрязнения, используя даже неподготовленную воду. Имеет умеренное пенообразование.",
@@ -218,6 +236,7 @@ export const products: Product[] = [
     id: "autogleam-premium",
     name: "AutoGleam Premium",
     category: "autogleam",
+    tier: "optima",
     short: "Топовый AutoGleam — быстрое смывание и сушка",
     description:
       "Профессиональный концентрат для бесконтактной мойки. Бережен к лакокрасочному покрытию, содержит ингибитор коррозии, обеспечивает эффективное очищение, быстрое смывание и сушку. PH 12.",
@@ -232,6 +251,7 @@ export const products: Product[] = [
     name: "Polyrole Shine Gloss",
     nameRu: "Глянцевый полироль",
     category: "interior",
+    tier: "optima",
     short: "Глянцевый блеск пластика салона",
     description:
       "Полироль для пластика салона. Препятствует оседанию пыли. Не оставляет жирных следов. Придаёт глянцевый блеск.",
@@ -246,6 +266,7 @@ export const products: Product[] = [
     name: "Polyrole Shine Matte",
     nameRu: "Матовый полироль",
     category: "interior",
+    tier: "optima",
     short: "Матовый эффект без жирных следов",
     description:
       "Полироль для пластика салона. Препятствует оседанию пыли. Не оставляет жирных следов. Придаёт матовый эффект.",
@@ -259,6 +280,7 @@ export const products: Product[] = [
     name: "Black Tire",
     nameRu: "Чернитель шин",
     category: "care",
+    tier: "optima",
     short: "Глубокий чёрный цвет и блеск резины",
     description:
       "Восстанавливает первоначальный глубокий чёрный цвет, придаёт блеск, улучшает внешний вид резины. Защищает резину от растрескивания.",
@@ -273,6 +295,7 @@ export const products: Product[] = [
     name: "ASF Hydro Shield",
     nameRu: "Воск-полироль",
     category: "care",
+    tier: "premium",
     short: "Блеск кузова и защита после мойки",
     description:
       "Средство для финишной обработки кузова: освежает внешний вид, придаёт блеск, полирует и защищает от внешних воздействий и окружающей среды.",
@@ -288,6 +311,7 @@ export const products: Product[] = [
     name: "ASF Motor Cleaner",
     nameRu: "Очиститель мотора",
     category: "care",
+    tier: "optima",
     short: "Отмывает масляные загрязнения двигателя",
     description:
       "Профессиональное средство для очистки двигателя и моторного отсека от масляных и эксплуатационных загрязнений. Обеспечивает качественную и бережную очистку.",

@@ -3,7 +3,26 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Canister from "./Canister";
-import { categories, groups, products, waLink, type Product } from "@/lib/products";
+import { categories, groups, products, tiers, waLink, type Product } from "@/lib/products";
+
+/** прямоугольник ценового уровня: Старт → Оптима → Премиум */
+function TierBadge({ product, className = "" }: { product: Product; className?: string }) {
+  const t = tiers[product.tier];
+  const style =
+    product.tier === "premium"
+      ? "border-ink bg-ink text-white"
+      : product.tier === "optima"
+        ? "border-amber bg-amber/15 text-ink"
+        : "border-line bg-paper text-muted";
+  return (
+    <span
+      title={t.hint}
+      className={`border px-2 py-[3px] text-[10px] font-bold tracking-caps uppercase ${style} ${className}`}
+    >
+      {t.label}
+    </span>
+  );
+}
 
 /** тёмный или белый текст в зависимости от светлоты акцента */
 function onAccent(hex: string) {
@@ -77,7 +96,8 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
         />
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <TierBadge product={product} />
           <span
             className="h-2 w-2 shrink-0 rounded-full"
             style={{ backgroundColor: product.accent }}
@@ -201,6 +221,17 @@ function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => 
                         />
                       </div>
                       <div>
+                        <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                          <TierBadge product={p} />
+                          {p.bestseller && (
+                            <span
+                              className="px-1.5 py-0.5 text-[9px] font-bold tracking-caps uppercase"
+                              style={{ backgroundColor: p.accent, color: onAccent(p.accent) }}
+                            >
+                              Хит
+                            </span>
+                          )}
+                        </div>
                         <h4 className="text-[14px] font-bold uppercase leading-tight tracking-wide sm:text-[15px]">
                           {p.name}
                         </h4>
@@ -302,6 +333,31 @@ export default function Catalog() {
                   <p className="text-[12px] text-muted">{s.l}</p>
                 </div>
               ))}
+            </div>
+
+            {/* легенда ценовых уровней */}
+            <div className="mt-6 border-t border-line pt-4">
+              <p className="mb-2.5 text-[10px] font-bold tracking-caps uppercase text-muted">
+                Ценовые уровни
+              </p>
+              <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5">
+                {(["start", "optima", "premium"] as const).map((t) => (
+                  <li key={t} className="flex items-center gap-2">
+                    <span
+                      className={`border px-2 py-[3px] text-[10px] font-bold tracking-caps uppercase ${
+                        t === "premium"
+                          ? "border-ink bg-ink text-white"
+                          : t === "optima"
+                            ? "border-amber bg-amber/15 text-ink"
+                            : "border-line bg-paper text-muted"
+                      }`}
+                    >
+                      {tiers[t].label}
+                    </span>
+                    <span className="text-[12px] text-muted">{tiers[t].hint}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
