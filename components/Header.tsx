@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { contacts } from "@/lib/products";
 
@@ -14,9 +14,22 @@ const nav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  // navbar спрятан наверху страницы, появляется после прокрутки
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#141416]/95 text-white backdrop-blur-sm">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#141416]/95 text-white backdrop-blur-sm transition-transform duration-300 ${
+        scrolled || open ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="mx-auto flex h-12 max-w-[85rem] items-center justify-between px-4 sm:h-14 sm:px-6 lg:h-16">
         <a href="#" className="flex items-center gap-2.5 sm:gap-3">
           <Image

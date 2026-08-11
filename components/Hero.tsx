@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { waLink, contacts } from "@/lib/products";
-import ScrollReveal from "./ScrollReveal";
 
 const benefits = [
   "Производство в Казахстане",
@@ -80,9 +79,9 @@ export default function Hero() {
             ))}
           </ul>
 
-          {/* мобильный: фото скрыто при загрузке, появляется при прокрутке;
-              верх обрезан ~15%, fade сверху на входе и снизу — в конце фото */}
-          <ScrollReveal className="relative -mx-4 mt-5 block aspect-[941/1421] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
+          {/* мобильный: фото ниже текста; верх обрезан ~15%,
+              fade сверху на входе и снизу — в самом конце фотографии */}
+          <div className="relative -mx-4 mt-5 aspect-[941/1421] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
             <Image
               src="/photos/hero-foam-mobile.jpg"
               alt="Автомобиль в густой активной пене ASF"
@@ -91,7 +90,7 @@ export default function Hero() {
               sizes="100vw"
               className="object-cover object-[58%_bottom] [mask-image:linear-gradient(180deg,transparent_0%,#000_9%,#000_84%,transparent_100%)]"
             />
-          </ScrollReveal>
+          </div>
         </div>
       </div>
     </section>
