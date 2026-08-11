@@ -47,8 +47,8 @@ export default function Intro() {
         <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-5 lg:grid-cols-3 lg:gap-4">
           <figure className="reveal relative col-span-2 aspect-[16/9] overflow-hidden lg:col-span-1 lg:aspect-auto">
             <Image
-              src="/photos/production.jpg"
-              alt="Производство автохимии ASF в Астане"
+              src="/photos/brand-stats.jpg"
+              alt="ASF — Astana Soap Factory"
               fill
               sizes="(min-width: 1024px) 420px, 100vw"
               className="object-cover"
