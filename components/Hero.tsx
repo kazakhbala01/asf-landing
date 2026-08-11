@@ -81,14 +81,14 @@ export default function Hero() {
 
           {/* мобильный: фото ниже текста; верх обрезан ~20% (object-bottom),
               fade сверху на входе и снизу — в самом конце фотографии */}
-          <div className="relative -mx-4 mt-5 aspect-[941/1505] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
+          <div className="relative -mx-4 mt-5 aspect-[941/1421] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
             <Image
               src="/photos/hero-foam-mobile.jpg"
               alt="Автомобиль в густой активной пене ASF"
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[58%_bottom] [mask-image:linear-gradient(180deg,transparent_0%,#000_15%,#000_84%,transparent_100%)]"
+              className="object-cover object-[58%_bottom] [mask-image:linear-gradient(180deg,transparent_0%,#000_9%,#000_84%,transparent_100%)]"
             />
           </div>
         </div>
