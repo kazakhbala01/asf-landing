@@ -25,20 +25,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* мобильный фон: фото за текстом, начинается у заголовка, сверху растворяется
-          в фон (текст читается), fade заканчивается у подзаголовка — ниже машина видна */}
-      <div className="absolute inset-x-0 top-0 z-0 h-[560px] lg:hidden">
-        <Image
-          src="/photos/hero-foam-mobile.jpg"
-          alt="Автомобиль в густой активной пене ASF"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[58%_top] [mask-image:linear-gradient(180deg,transparent_0%,transparent_14%,#000_33%,#000_88%,transparent_100%)]"
-        />
-      </div>
-
-      <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-4 pt-6 sm:px-6 sm:pb-6 sm:pt-10 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pb-16 lg:pt-16">
+      <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-10 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pb-16 lg:pt-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
           <h1 className="text-[2.15rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.7rem] lg:text-[2.3rem] xl:text-[2.8rem]">
             УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ{" "}
@@ -92,9 +79,19 @@ export default function Hero() {
             ))}
           </ul>
 
-          {/* мобильный: место под машину (она — фон выше), чтобы блок ниже
-              подходил почти вплотную к фото */}
-          <div className="h-[380px] lg:hidden" aria-hidden />
+          {/* мобильный: фото ниже текста, вход через мягкий fade сверху;
+              карточка из следующего блока ляжет поверх нижней части фото */}
+          <div className="relative mt-5 lg:hidden">
+            <Image
+              src="/photos/hero-foam-mobile.jpg"
+              alt="Автомобиль в густой активной пене ASF"
+              width={941}
+              height={1672}
+              priority
+              sizes="100vw"
+              className="-mx-4 h-[460px] w-[calc(100%+2rem)] max-w-none object-cover object-[58%_top] [mask-image:linear-gradient(180deg,transparent_0%,#000_16%)] sm:-mx-6 sm:h-[540px] sm:w-[calc(100%+3rem)]"
+            />
+          </div>
         </div>
       </div>
     </section>

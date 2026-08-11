@@ -15,8 +15,8 @@ const stats = [
 
 export default function Intro() {
   return (
-    <section className="border-b border-line bg-paper">
-      <div className="mx-auto max-w-[85rem] px-4 pb-10 pt-3 sm:px-6 sm:pb-14 sm:pt-6 lg:py-20">
+    <section className="relative z-10 -mt-24 border-b border-line bg-transparent sm:-mt-28 lg:mt-0 lg:bg-paper">
+      <div className="mx-auto max-w-[85rem] px-4 pb-10 pt-0 sm:px-6 sm:pb-14 lg:py-20 lg:pt-20">
         {/* призыв к действию */}
         <div className="reveal relative border border-line bg-soft p-5 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <span className="absolute -top-3 right-4 bg-amber px-3 py-1 text-[10px] font-bold tracking-caps uppercase text-ink sm:right-8">
