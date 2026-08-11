@@ -81,7 +81,7 @@ export default function Hero() {
 
           {/* мобильный: фото ниже текста; верх обрезан ~20% (object-bottom),
               fade сверху на входе и снизу — в самом конце фотографии */}
-          <div className="relative -mx-4 mt-5 aspect-[941/1338] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
+          <div className="relative -mx-4 mt-5 aspect-[941/1505] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
             <Image
               src="/photos/hero-foam-mobile.jpg"
               alt="Автомобиль в густой активной пене ASF"
