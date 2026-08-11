@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#141416]/95 text-white backdrop-blur-sm transition-transform duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#141416]/95 text-white backdrop-blur-sm transition-transform duration-300 lg:translate-y-0 ${
         scrolled || open ? "translate-y-0" : "-translate-y-full"
       }`}
     >
