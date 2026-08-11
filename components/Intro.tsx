@@ -17,15 +17,8 @@ export default function Intro() {
   return (
     <section className="border-b border-line bg-paper">
       <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
-        {/* продолжение оффера из hero */}
-        <p className="reveal max-w-3xl text-[16px] leading-relaxed text-ink/80 sm:text-[18px] lg:text-[20px]">
-          За счёт более быстрой мойки, меньшего расхода автохимии
-          и возвращающихся клиентов. Производим профессиональные автошампуни,
-          очистители двигателя и полироли с выгодной себестоимостью.
-        </p>
-
         {/* призыв к действию */}
-        <div className="reveal relative mt-8 border border-line bg-soft p-5 sm:mt-10 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <div className="reveal relative border border-line bg-soft p-5 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <span className="absolute -top-3 right-4 bg-amber px-3 py-1 text-[10px] font-bold tracking-caps uppercase text-ink sm:right-8">
             Бесплатно
           </span>

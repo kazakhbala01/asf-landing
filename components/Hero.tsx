@@ -31,11 +31,14 @@ export default function Hero() {
 
       <div className="relative mx-auto w-full max-w-[85rem] px-4 pb-10 pt-10 sm:px-6 sm:pb-14 sm:pt-14 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16">
         <div className="lg:max-w-[33%]">
-          <h1 className="text-[1.9rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.7rem] lg:text-[2.4rem] xl:text-[2.9rem]">
-            УВЕЛИЧЬТЕ ПРИБЫЛЬ АВТОМОЙКИ
+          <h1 className="text-[1.9rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.7rem] lg:text-[2.3rem] xl:text-[2.8rem]">
+            УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ
             <br />
             <span className="text-amber-dark">В 2–3 РАЗА</span>
           </h1>
+          <p className="mt-3 max-w-md text-[16px] font-semibold leading-snug text-ink/70 sm:mt-4 sm:text-[19px] lg:text-[18px] xl:text-[20px]">
+            и выведите бизнес на новый уровень
+          </p>
           <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:mt-8 sm:gap-3">
             <a
               href={waLink("Здравствуйте! Пришлите, пожалуйста, оптовый прайс ASF.")}
@@ -77,8 +80,19 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-        </div>
 
+          {/* мобильный вариант фото: под текстом, целиком — перед машины виден,
+              верхний край растворяется в фон */}
+          <Image
+            src="/photos/hero-foam.jpg"
+            alt="Автомобиль в густой активной пене ASF"
+            width={1408}
+            height={768}
+            priority
+            sizes="100vw"
+            className="mt-7 h-auto w-full [mask-image:linear-gradient(180deg,transparent_0%,#000_14%)] lg:hidden"
+          />
+        </div>
       </div>
     </section>
   );
