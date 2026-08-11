@@ -27,7 +27,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-10 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pb-16 lg:pt-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
-          <h1 className="text-[2.15rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.7rem] lg:text-[2.3rem] xl:text-[2.8rem]">
+          <h1 className="text-[2.55rem] font-extrabold leading-[1.05] tracking-tight text-ink sm:text-[3.1rem] lg:text-[2.3rem] xl:text-[2.8rem]">
             УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ{" "}
             <br className="hidden lg:block" />
             <span className="whitespace-nowrap text-amber-dark">В 2–3 РАЗА</span>
