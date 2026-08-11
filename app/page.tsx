@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
+import Benefits from "@/components/Benefits";
 import TrustBadges from "@/components/TrustBadges";
 import BeforeAfter from "@/components/BeforeAfter";
 import Media from "@/components/Media";
@@ -25,6 +26,7 @@ export default function Home() {
       <main>
         <Hero />
         <Intro />
+        <Benefits />
         <TrustBadges />
         <BeforeAfter />
         <Catalog />
