@@ -3,54 +3,54 @@ import { waLink, contacts } from "@/lib/products";
 
 const icons = {
   time: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <circle cx="12" cy="13" r="8" />
       <path d="M12 9.5V13l2.5 1.5M9 2h6" strokeLinecap="round" />
     </svg>
   ),
   drop: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M12 3s6 6.4 6 10.6A6 6 0 0 1 6 13.6C6 9.4 12 3 12 3z" strokeLinejoin="round" />
       <path d="M9 14a3 3 0 0 0 2.2 3.1" strokeLinecap="round" opacity="0.6" />
     </svg>
   ),
   people: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <circle cx="9" cy="8" r="3" />
       <circle cx="17" cy="10" r="2.4" />
       <path d="M3.5 20c.6-3 2.8-5 5.5-5s4.9 2 5.5 5M14.8 15.4c2.3.3 4 2 4.6 4.6" strokeLinecap="round" />
     </svg>
   ),
   chart: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M4 19h16M6 16V9m5 7V5m5 11v-5" strokeLinecap="round" />
     </svg>
   ),
   repeat: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M3.5 12a8.5 8.5 0 0 1 14.4-6.1M20.5 12a8.5 8.5 0 0 1-14.4 6.1" strokeLinecap="round" />
       <path d="M18 2.5V6h-3.5M6 21.5V18h3.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   shield: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6l8-3z" strokeLinejoin="round" />
       <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
   tag: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M20 12.5L12.5 20a2 2 0 0 1-2.8 0L4 14.3V4h10.3l5.7 5.7a2 2 0 0 1 0 2.8z" strokeLinejoin="round" />
       <circle cx="9" cy="9" r="1.4" />
     </svg>
   ),
   factory: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M3 21V9l6 4V9l6 4V5h6v16H3z" strokeLinejoin="round" />
     </svg>
   ),
   test: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 sm:h-6 sm:w-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7 sm:h-9 sm:w-9">
       <path d="M9 3h6M10 3v5.5L5.2 17.4A2.4 2.4 0 0 0 7.3 21h9.4a2.4 2.4 0 0 0 2.1-3.6L14 8.5V3" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M7.6 15h8.8" strokeLinecap="round" />
     </svg>
@@ -80,7 +80,7 @@ function Tile({
       } ${className}`}
     >
       <div className="flex items-start justify-between gap-2">
-        <span className="text-[14px] font-extrabold tabular-nums text-amber sm:text-[15px]">
+        <span className="text-[22px] font-extrabold leading-none tabular-nums text-amber sm:text-[26px]">
           {n}
         </span>
         <span className="text-ink/30">{icon}</span>
@@ -118,16 +118,16 @@ export default function Benefits() {
 
         {/* бенто: 2 колонки на мобильном, 3 на десктопе; крупные карточки шире */}
         <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-3 lg:gap-4">
-          {/* 01 — фото канистры целиком */}
-          <article className="reveal col-span-2 flex items-stretch overflow-hidden rounded-2xl border border-line bg-paper lg:col-span-2">
-            <div className="flex flex-1 flex-col justify-center p-4 sm:p-6 lg:p-7">
-              <span className="text-[14px] font-extrabold tabular-nums text-amber sm:text-[15px]">
+          {/* 01 — фото канистры целиком (мобильный: под текстом, десктоп: справа) */}
+          <article className="reveal col-span-2 flex flex-col overflow-hidden rounded-2xl border border-line bg-paper sm:flex-row sm:items-center lg:col-span-2">
+            <div className="flex flex-1 flex-col p-4 sm:p-6 lg:p-7">
+              <span className="text-[24px] font-extrabold leading-none tabular-nums text-amber sm:text-[28px]">
                 01
               </span>
-              <h3 className="mt-1.5 text-[16px] font-bold leading-[1.2] sm:text-[20px] lg:text-[22px]">
+              <h3 className="mt-2 text-[17px] font-bold leading-[1.2] sm:text-[20px] lg:text-[23px]">
                 Снизить себестоимость каждой мойки
               </h3>
-              <p className="mt-2 text-[13px] leading-snug text-muted sm:text-[15px]">
+              <p className="mt-2 text-[13.5px] leading-snug text-muted sm:text-[15px]">
                 Оптимальный расход автохимии помогает оставлять больше денег
                 с каждого обслуженного автомобиля.
               </p>
@@ -140,8 +140,8 @@ export default function Benefits() {
               alt="ASF Active Foam Pink в пене"
               width={1183}
               height={912}
-              sizes="(min-width: 1024px) 420px, 45vw"
-              className="w-[34%] shrink-0 self-end object-contain object-bottom sm:w-[32%]"
+              sizes="(min-width: 1024px) 380px, 60vw"
+              className="mx-auto h-auto w-[62%] max-w-[260px] shrink-0 pb-4 sm:mx-0 sm:w-[36%] sm:max-w-none sm:pb-0"
             />
           </article>
 
@@ -158,31 +158,31 @@ export default function Benefits() {
             text="Правильные дозировки и рекомендации помогают контролировать расход и уменьшать потери."
           />
 
-          {/* 04 — тёмная карточка с фото машины */}
-          <article className="reveal relative col-span-2 flex min-h-[200px] flex-col justify-end overflow-hidden rounded-2xl bg-ink text-white sm:min-h-[230px] lg:col-span-2 lg:min-h-[250px]">
-            <Image
-              src="/photos/benefit-car.jpg"
-              alt="Кузов автомобиля в активной пене"
-              fill
-              sizes="(min-width: 1024px) 760px, 100vw"
-              className="object-cover object-center opacity-60"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,18,18,0.95)_0%,rgba(18,18,18,0.78)_48%,rgba(18,18,18,0.2)_100%)]" />
-            <div className="relative z-10 max-w-[78%] p-4 sm:max-w-[64%] sm:p-6 lg:p-7">
+          {/* 04 — тёмная карточка: текст слева, фото целиком справа */}
+          <article className="reveal col-span-2 flex flex-col overflow-hidden rounded-2xl bg-ink text-white sm:flex-row sm:items-center lg:col-span-2">
+            <div className="flex flex-1 flex-col p-4 sm:p-6 lg:p-7">
               <div className="flex items-center gap-3">
-                <span className="text-[14px] font-extrabold tabular-nums text-amber sm:text-[15px]">
+                <span className="text-[24px] font-extrabold leading-none tabular-nums text-amber sm:text-[28px]">
                   04
                 </span>
-                <span className="text-white/45">{icons.people}</span>
+                <span className="text-white/40">{icons.people}</span>
               </div>
-              <h3 className="mt-1.5 text-[16px] font-bold leading-[1.2] sm:text-[20px] lg:text-[22px]">
+              <h3 className="mt-2 text-[17px] font-bold leading-[1.2] sm:text-[20px] lg:text-[23px]">
                 Уменьшить количество перемывов и претензий
               </h3>
-              <p className="mt-2 text-[13px] leading-snug text-white/70 sm:text-[15px]">
+              <p className="mt-2 text-[13.5px] leading-snug text-white/70 sm:text-[15px]">
                 Стабильный результат с первого раза — меньше бесплатной
                 переделки работы и недовольных клиентов.
               </p>
             </div>
+            <Image
+              src="/photos/benefit-car.jpg"
+              alt="Кузов автомобиля в активной пене"
+              width={1400}
+              height={933}
+              sizes="(min-width: 1024px) 420px, 100vw"
+              className="h-auto w-full shrink-0 sm:w-[44%] [mask-image:linear-gradient(180deg,transparent_0%,#000_18%)] sm:[mask-image:linear-gradient(90deg,transparent_0%,#000_20%)]"
+            />
           </article>
 
           <Tile
