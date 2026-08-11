@@ -88,13 +88,18 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
         className="w-1 shrink-0 sm:h-1 sm:w-auto"
         style={{ backgroundColor: product.accent }}
       />
-      <div className="flex w-[132px] shrink-0 items-center justify-center border-r border-line bg-white p-2 sm:w-auto sm:border-r-0 sm:border-b sm:p-5">
+      <button
+        type="button"
+        onClick={onDetails}
+        aria-label={`Открыть каталог: ${product.name}`}
+        className="flex w-[132px] shrink-0 items-center justify-center border-r border-line bg-white p-2 transition-opacity hover:opacity-80 sm:w-auto sm:border-b sm:border-r-0 sm:p-5"
+      >
         <ProductShot
           product={product}
           sizes="(min-width: 1024px) 380px, 200px"
           className="h-28 w-full sm:h-44 lg:h-56"
         />
-      </div>
+      </button>
       <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
           <span
@@ -116,9 +121,13 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
             )}
           </span>
         </div>
-        <h3 className="mt-2 text-[15px] font-bold uppercase leading-tight tracking-wide sm:text-[16px] lg:text-[18px]">
+        <button
+          type="button"
+          onClick={onDetails}
+          className="mt-2 text-left text-[15px] font-bold uppercase leading-tight tracking-wide transition-colors hover:text-amber-dark sm:text-[16px] lg:text-[18px]"
+        >
           {product.name}
-        </h3>
+        </button>
         <p className="mt-1.5 flex-1 text-[13px] leading-snug text-muted sm:text-[14px] lg:mt-2 lg:text-[15px]">
           {product.short}
         </p>
@@ -147,7 +156,15 @@ function Card({ product, onDetails }: { product: Product; onDetails: () => void 
   );
 }
 
-function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => void }) {
+function Modal({
+  groupId,
+  focusId,
+  onClose,
+}: {
+  groupId: "foam" | "care";
+  focusId?: string;
+  onClose: () => void;
+}) {
   const group = groups.find((g) => g.id === groupId)!;
 
   useEffect(() => {
@@ -159,6 +176,17 @@ function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => 
       document.body.style.overflow = "";
     };
   }, [onClose]);
+
+  // прокручиваем к товару, по которому кликнули
+  useEffect(() => {
+    if (!focusId) return;
+    const t = setTimeout(() => {
+      document
+        .getElementById(`catalog-item-${focusId}`)
+        ?.scrollIntoView({ block: "center" });
+    }, 60);
+    return () => clearTimeout(t);
+  }, [focusId]);
 
   return (
     <div
@@ -218,7 +246,12 @@ function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => 
                   {items.map((p) => (
                     <div
                       key={p.id}
-                      className="grid grid-cols-[76px_1fr] gap-4 border-b border-line pb-5 last:border-0 last:pb-0 sm:grid-cols-[150px_1fr_210px] sm:gap-6"
+                      id={`catalog-item-${p.id}`}
+                      className={`grid grid-cols-[76px_1fr] gap-4 border-b border-line pb-5 last:border-0 last:pb-0 sm:grid-cols-[150px_1fr_210px] sm:gap-6 ${
+                        p.id === focusId
+                          ? "rounded-sm ring-2 ring-amber ring-offset-8 ring-offset-paper"
+                          : ""
+                      }`}
                     >
                       <div className="flex items-start justify-center bg-white py-1">
                         <ProductShot
@@ -306,7 +339,11 @@ function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => 
 }
 
 export default function Catalog() {
-  const [open, setOpen] = useState<"foam" | "care" | null>(null);
+  // открытая витрина + товар, на котором нужно показать каталог
+  const [open, setOpen] = useState<{
+    group: "foam" | "care";
+    focus?: string;
+  } | null>(null);
 
   return (
     <section id="products" className="border-b border-line">
@@ -347,11 +384,11 @@ export default function Catalog() {
               <p className="mb-2.5 text-[10px] font-bold tracking-caps uppercase text-muted">
                 Ценовые уровни
               </p>
-              <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-5">
+              <ul className="flex flex-col gap-2">
                 {(["start", "optima", "premium"] as const).map((t) => (
                   <li key={t} className="flex items-center gap-2">
                     <span
-                      className={`border px-2 py-[3px] text-[10px] font-bold tracking-caps uppercase ${
+                      className={`w-[84px] shrink-0 border px-2 py-[3px] text-center text-[10px] font-bold tracking-caps uppercase ${
                         t === "premium"
                           ? "border-ink bg-ink text-white"
                           : t === "optima"
@@ -408,7 +445,7 @@ export default function Catalog() {
                 </div>
                 <button
                   type="button"
-                  onClick={() => setOpen(group.id)}
+                  onClick={() => setOpen({ group: group.id })}
                   className="flex items-center gap-2 border border-ink px-5 py-3 text-[12px] font-bold tracking-caps uppercase transition-colors hover:bg-ink hover:text-white lg:px-7 lg:py-4 lg:text-[13px]"
                 >
                   Весь каталог
@@ -420,7 +457,11 @@ export default function Catalog() {
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-5 lg:gap-6">
                 {featured.map((p) => (
-                  <Card key={p.id} product={p} onDetails={() => setOpen(group.id)} />
+                  <Card
+                    key={p.id}
+                    product={p}
+                    onDetails={() => setOpen({ group: group.id, focus: p.id })}
+                  />
                 ))}
               </div>
             </div>
@@ -428,7 +469,13 @@ export default function Catalog() {
         })}
       </div>
 
-      {open && <Modal groupId={open} onClose={() => setOpen(null)} />}
+      {open && (
+        <Modal
+          groupId={open.group}
+          focusId={open.focus}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </section>
   );
 }
