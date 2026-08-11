@@ -36,12 +36,6 @@ export default function Hero() {
             <br />
             <span className="text-amber-dark">В 2–3 РАЗА</span>
           </h1>
-          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-ink/75 sm:mt-6 sm:text-[17px] lg:max-w-none">
-            За счёт более быстрой мойки, меньшего расхода автохимии
-            и возвращающихся клиентов. Производим профессиональные автошампуни,
-            очистители двигателя и полироли с выгодной себестоимостью.
-          </p>
-
           <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:mt-8 sm:gap-3">
             <a
               href={waLink("Здравствуйте! Пришлите, пожалуйста, оптовый прайс ASF.")}
