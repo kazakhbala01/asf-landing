@@ -25,9 +25,9 @@ export default function Hero() {
         />
       </div>
 
-      {/* лого на месте прежнего navbar — видно при загрузке, до появления шапки;
+      {/* лого на месте прежнего navbar — только мобильная/планшетная версия;
           снизу разделитель, отделяющий лого от заголовка */}
-      <div className="relative z-10 mx-auto flex max-w-[85rem] items-center justify-center border-b border-line px-4 py-4 sm:px-6 sm:py-5 lg:justify-start lg:py-6">
+      <div className="relative z-10 mx-auto flex max-w-[85rem] items-center justify-center border-b border-line px-4 py-4 sm:px-6 sm:py-5 lg:hidden">
         <a href="#" className="flex items-center gap-3">
           <Image
             src="/logo.png"
@@ -35,8 +35,10 @@ export default function Hero() {
             width={64}
             height={64}
             priority
-            className="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+            className="h-12 w-12 sm:h-14 sm:w-14"
           />
+          {/* вертикальная линия между лого и текстом */}
+          <span className="h-9 w-px bg-line sm:h-11" />
           <span className="text-[13px] font-extrabold uppercase leading-[1.15] tracking-caps text-ink sm:text-[15px]">
             Astana
             <br />
@@ -47,7 +49,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-8 lg:flex lg:min-h-[calc(100vh-280px)] lg:items-center lg:py-10 lg:pb-16">
+      <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-8 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pt-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
           <h1 className="text-[2.55rem] font-extrabold leading-[1.05] tracking-tight text-ink sm:text-[3.1rem] lg:text-[2.3rem] xl:text-[2.8rem]">
             УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ{" "}
@@ -57,6 +59,8 @@ export default function Hero() {
           <p className="mx-auto mt-3 max-w-sm text-[15px] font-semibold leading-snug text-ink/70 sm:mt-4 sm:max-w-md sm:text-[18px] lg:mx-0 lg:text-[18px] xl:text-[20px]">
             и выведите бизнес на новый уровень
           </p>
+          {/* небольшая горизонтальная линия после заголовка — только мобильная версия */}
+          <span className="mx-auto mt-5 block h-[3px] w-14 bg-amber lg:hidden" />
 
           {/* десктоп: три кнопки + галочки */}
           <div className="mt-8 hidden flex-wrap items-center gap-3 lg:flex">
