@@ -25,14 +25,14 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[85rem] px-4 pb-12 pt-9 sm:px-6 sm:pb-14 sm:pt-14 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16">
+      <div className="relative mx-auto w-full max-w-[85rem] px-4 pb-4 pt-9 sm:px-6 sm:pb-6 sm:pt-14 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pb-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
-          <h1 className="text-[1.6rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:text-[2.4rem] lg:text-[2.3rem] xl:text-[2.8rem]">
-            УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ
+          <h1 className="text-[2.05rem] font-extrabold leading-[1.08] tracking-tight text-ink sm:text-[2.7rem] lg:text-[2.3rem] xl:text-[2.8rem]">
+            УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ{" "}
             <br className="hidden lg:block" />
-            <span className="text-amber-dark"> В 2–3 РАЗА</span>
+            <span className="whitespace-nowrap text-amber-dark">В 2–3 РАЗА</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-sm text-[14px] font-semibold leading-snug text-ink/70 sm:mt-4 sm:max-w-md sm:text-[17px] lg:mx-0 lg:text-[18px] xl:text-[20px]">
+          <p className="mx-auto mt-3 max-w-sm text-[15px] font-semibold leading-snug text-ink/70 sm:mt-4 sm:max-w-md sm:text-[18px] lg:mx-0 lg:text-[18px] xl:text-[20px]">
             и выведите бизнес на новый уровень
           </p>
 
@@ -79,7 +79,8 @@ export default function Hero() {
             ))}
           </ul>
 
-          {/* мобильный: фото машины на всю ширину экрана (full-frame), затем одна кнопка */}
+          {/* мобильный: фото машины на всю ширину, крупнее по вертикали,
+              низ растворяется в фон и соединяется со следующим блоком */}
           <div className="lg:hidden">
             <Image
               src="/photos/hero-foam.jpg"
@@ -88,16 +89,8 @@ export default function Hero() {
               height={878}
               priority
               sizes="100vw"
-              className="-mx-4 mt-7 w-[calc(100%+2rem)] max-w-none sm:-mx-6 sm:w-[calc(100%+3rem)]"
+              className="-mx-4 -mb-4 mt-7 h-[430px] w-[calc(100%+2rem)] max-w-none object-cover object-[60%_center] [mask-image:linear-gradient(180deg,#000_82%,transparent_100%)] sm:-mx-6 sm:-mb-6 sm:h-[520px] sm:w-[calc(100%+3rem)]"
             />
-            <a
-              href={waLink("Здравствуйте! Хочу заказать бесплатный тестовый образец автохимии ASF.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 block bg-amber px-6 py-4 text-center text-[13px] font-bold tracking-caps uppercase text-ink transition-colors hover:bg-amber-dark"
-            >
-              Заказать бесплатный образец
-            </a>
           </div>
         </div>
       </div>
