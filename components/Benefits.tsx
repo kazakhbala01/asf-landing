@@ -120,19 +120,19 @@ export default function Benefits() {
         <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-3 lg:gap-4">
           {/* 01 — фото заполняет карточку справа, слева растворяется маской,
               поэтому края фото не видны */}
-          <article className="reveal relative col-span-2 overflow-hidden rounded-2xl border border-line bg-paper lg:col-span-2">
-            <div className="relative z-10 flex max-w-[60%] flex-col p-4 sm:max-w-[58%] sm:p-6 lg:p-7">
-              <span className="text-[24px] font-extrabold leading-none tabular-nums text-amber sm:text-[28px]">
+          <article className="reveal relative col-span-2 min-h-[250px] overflow-hidden rounded-2xl border border-line bg-paper sm:min-h-[290px] lg:col-span-2 lg:min-h-[310px]">
+            <div className="relative z-10 flex h-full max-w-[56%] flex-col justify-center p-4 sm:max-w-[56%] sm:p-6 lg:p-8">
+              <span className="text-[22px] font-extrabold leading-none tabular-nums text-amber sm:text-[26px]">
                 01
               </span>
-              <h3 className="mt-2 text-[17px] font-bold leading-[1.2] sm:text-[20px] lg:text-[23px]">
+              <h3 className="mt-2 text-[16px] font-bold leading-[1.2] sm:text-[20px] lg:text-[23px]">
                 Снизить себестоимость каждой мойки
               </h3>
-              <p className="mt-2 text-[13.5px] leading-snug text-muted sm:text-[15px]">
+              <p className="mt-2 text-[12.5px] leading-snug text-muted sm:text-[14px] lg:text-[15px]">
                 Оптимальный расход автохимии помогает оставлять больше денег
                 с каждого обслуженного автомобиля.
               </p>
-              <span className="mt-3 inline-flex w-fit items-center rounded-lg border border-amber bg-amber/15 px-2.5 py-1.5 text-[11px] font-bold tracking-caps uppercase sm:text-[12px]">
+              <span className="mt-3 inline-flex w-fit items-center rounded-lg border border-amber bg-amber/15 px-2.5 py-1.5 text-[10.5px] font-bold tracking-caps uppercase sm:text-[12px]">
                 Расход под контролем
               </span>
             </div>
@@ -140,8 +140,8 @@ export default function Benefits() {
               src="/photos/benefit-foam.jpg"
               alt="ASF Active Foam Pink в пене"
               fill
-              sizes="(min-width: 1024px) 380px, 45vw"
-              className="!left-auto right-0 !h-full !w-[44%] object-cover object-center [mask-image:linear-gradient(90deg,transparent_0%,#000_30%)] sm:!w-[42%]"
+              sizes="(min-width: 1024px) 400px, 50vw"
+              className="!left-auto right-0 !h-full !w-[48%] object-cover object-[center_bottom] [mask-image:linear-gradient(90deg,transparent_0%,#000_28%)] sm:!w-[44%]"
             />
           </article>
 
