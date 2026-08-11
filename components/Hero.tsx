@@ -25,18 +25,19 @@ export default function Hero() {
         />
       </div>
 
-      {/* лого на месте прежнего navbar — видно при загрузке, до появления шапки */}
-      <div className="relative z-10 mx-auto flex h-12 max-w-[85rem] items-center justify-center px-4 sm:h-14 sm:px-6 lg:h-16 lg:justify-start">
-        <a href="#" className="flex items-center gap-2.5 sm:gap-3">
+      {/* лого на месте прежнего navbar — видно при загрузке, до появления шапки;
+          снизу разделитель, отделяющий лого от заголовка */}
+      <div className="relative z-10 mx-auto flex max-w-[85rem] items-center justify-center border-b border-line px-4 py-4 sm:px-6 sm:py-5 lg:justify-start lg:py-6">
+        <a href="#" className="flex items-center gap-3">
           <Image
             src="/logo.png"
             alt="ASF — Astana Soap Factory"
-            width={44}
-            height={44}
+            width={64}
+            height={64}
             priority
-            className="h-8 w-8 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
+            className="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
           />
-          <span className="text-[11px] font-extrabold uppercase leading-[1.15] tracking-caps text-ink sm:text-[13px]">
+          <span className="text-[13px] font-extrabold uppercase leading-[1.15] tracking-caps text-ink sm:text-[15px]">
             Astana
             <br />
             Soap
@@ -46,7 +47,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-4 sm:px-6 sm:pt-6 lg:flex lg:min-h-[calc(100vh-260px)] lg:items-center lg:py-10 lg:pb-16">
+      <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-8 lg:flex lg:min-h-[calc(100vh-280px)] lg:items-center lg:py-10 lg:pb-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
           <h1 className="text-[2.55rem] font-extrabold leading-[1.05] tracking-tight text-ink sm:text-[3.1rem] lg:text-[2.3rem] xl:text-[2.8rem]">
             УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ{" "}
