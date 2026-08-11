@@ -16,7 +16,7 @@ export type Product = {
   id: string;
   name: string;
   nameRu?: string;
-  category: "pink" | "activefoam" | "autogleam" | "interior" | "care";
+  category: "colored" | "classic" | "allseason" | "interior" | "care";
   tier: Tier;
   /** короткая суть для карточки в каталоге */
   short: string;
@@ -37,7 +37,7 @@ const AMBER = "#ffb902";
 const VIOLET = "#6d28d9";
 const DARK = "#232323";
 
-// Сегменты линейки — от премиума к базе, плюс салон и уход
+// Типы автохимии (три вида шампуней) + косметика и уход
 export const categories: {
   id: Product["category"];
   title: string;
@@ -45,21 +45,24 @@ export const categories: {
   accent: string;
 }[] = [
   {
-    id: "pink",
-    title: "ASF Pink",
-    tagline: "Премиальная линейка — фирменная розовая активная пена",
+    id: "colored",
+    title: "Цветная автохимия",
+    tagline:
+      "Цветная профессиональная автохимия — идеально подходит как для классических автомоек, так и для моек самообслуживания: благодаря универсальности работает с любыми видами оборудования. Плотная пена обладает насыщенным розовым цветом и справляется со всеми видами загрязнений.",
     accent: PINK,
   },
   {
-    id: "activefoam",
-    title: "Active Foam",
-    tagline: "Средний сегмент — сильные концентраты, работают в жёсткой воде",
+    id: "classic",
+    title: "Для классических моек",
+    tagline:
+      "Профессиональная автохимия для классических автомоек. Идеально подходит для летнего сезона, справляется с большинством видов автозагрязнений. Имеет в составе специальные присадки для защиты ЛКП авто.",
     accent: AMBER,
   },
   {
-    id: "autogleam",
-    title: "AutoGleam",
-    tagline: "Базовая линейка — рабочая химия на каждый день",
+    id: "allseason",
+    title: "Всесезонная автохимия",
+    tagline:
+      "Профессиональная всесезонная автохимия — удаляет все виды загрязнений, подходит для работы с любой водой. Содержит специальные присадки для защиты ЛКП авто. Обладает антистатическими свойствами.",
     accent: VIOLET,
   },
   {
@@ -87,8 +90,8 @@ export const groups: {
   {
     id: "foam",
     title: "Автошампуни",
-    tagline: "Активная пена для бесконтактной мойки — три ценовых уровня",
-    categories: ["pink", "activefoam", "autogleam"],
+    tagline: "Активная пена для бесконтактной мойки — три типа под разные задачи",
+    categories: ["colored", "classic", "allseason"],
     featured: ["pink-active", "storm", "autogleam-prime"],
   },
   {
@@ -100,7 +103,7 @@ export const groups: {
   },
 ];
 
-/** цветовая маркировка линеек: розовый — Pink, янтарный — Active Foam, фиолетовый — AutoGleam */
+/** цветовая маркировка типов: розовый — цветная, янтарный — для классических моек, фиолетовый — всесезонная */
 export const lineColors = { PINK, AMBER, VIOLET, DARK };
 
 // Данные из каталога ASF (Каталог.pdf). Описания — дословно из каталога.
@@ -108,7 +111,7 @@ export const products: Product[] = [
   {
     id: "pink-active",
     name: "ASF Pink Active Foam",
-    category: "pink",
+    category: "colored",
     tier: "premium",
     short: "Плотная розовая пена с защитой ЛКП",
     description:
@@ -122,7 +125,7 @@ export const products: Product[] = [
   {
     id: "pink-soft",
     name: "ASF Pink Soft Active Foam",
-    category: "pink",
+    category: "colored",
     tier: "premium",
     short: "Густая устойчивая пена, все виды загрязнений",
     description:
@@ -135,7 +138,7 @@ export const products: Product[] = [
   {
     id: "pink-force",
     name: "ASF Pink Force Active Foam",
-    category: "pink",
+    category: "colored",
     tier: "premium",
     short: "Для легковых и грузовых, безопасен для ЛКП",
     description:
@@ -149,7 +152,7 @@ export const products: Product[] = [
   {
     id: "storm",
     name: "Active Foam Storm",
-    category: "activefoam",
+    category: "allseason",
     tier: "optima",
     short: "Разработан под жёсткую воду",
     description:
@@ -161,13 +164,13 @@ export const products: Product[] = [
       { method: "Дозатрон", value: "0,6–1,2 %" },
     ],
     image: "/products/storm.jpg",
-    accent: AMBER,
+    accent: VIOLET,
     bestseller: true,
   },
   {
     id: "strong",
     name: "Active Foam Strong",
-    category: "activefoam",
+    category: "classic",
     tier: "optima",
     short: "Самый экономичный — разведение до 1:200",
     description:
@@ -184,7 +187,7 @@ export const products: Product[] = [
   {
     id: "autogleam-prime",
     name: "AutoGleam Prime",
-    category: "autogleam",
+    category: "classic",
     tier: "start",
     short: "Универсальный — легковые и грузовые",
     description:
@@ -196,12 +199,12 @@ export const products: Product[] = [
       { method: "Дозатрон", value: "1–2 %" },
     ],
     image: "/products/autogleam-prime.jpg",
-    accent: VIOLET,
+    accent: AMBER,
   },
   {
     id: "autogleam-ultra",
     name: "AutoGleam Ultra",
-    category: "autogleam",
+    category: "classic",
     tier: "start",
     short: "Защита кузова от зимних реагентов",
     description:
@@ -213,12 +216,12 @@ export const products: Product[] = [
       { method: "Дозатрон", value: "1,5–2 %" },
     ],
     image: "/products/autogleam-ultra.jpg",
-    accent: VIOLET,
+    accent: AMBER,
   },
   {
     id: "autogleam-dozatron",
     name: "AutoGleam Dozatron",
-    category: "autogleam",
+    category: "allseason",
     tier: "start",
     short: "Для систем дозирования, работает на любой воде",
     description:
@@ -235,7 +238,7 @@ export const products: Product[] = [
   {
     id: "autogleam-premium",
     name: "AutoGleam Premium",
-    category: "autogleam",
+    category: "allseason",
     tier: "optima",
     short: "Топовый AutoGleam — быстрое смывание и сушка",
     description:

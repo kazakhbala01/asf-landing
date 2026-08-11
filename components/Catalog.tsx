@@ -198,15 +198,20 @@ function Modal({ groupId, onClose }: { groupId: "foam" | "care"; onClose: () => 
             const items = products.filter((p) => p.category === catId);
             return (
               <div key={catId} className="mb-8 last:mb-0">
-                <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-line pb-2">
-                  <h3 className="flex items-center gap-2 text-[13px] font-bold tracking-caps uppercase">
+                <div className="mb-4 border-b border-line pb-3">
+                  <h3 className="flex items-center gap-2 text-[13px] font-bold tracking-caps uppercase sm:text-[14px]">
                     <span
-                      className="h-2 w-2 rounded-full"
+                      className="h-2.5 w-2.5 rounded-full"
                       style={{ backgroundColor: cat.accent }}
                     />
                     {cat.title}
+                    <span className="font-semibold text-muted">
+                      ({items.length})
+                    </span>
                   </h3>
-                  <p className="text-[12px] text-muted">{cat.tagline}</p>
+                  <p className="mt-1.5 max-w-3xl text-[12.5px] leading-snug text-muted sm:text-[13.5px]">
+                    {cat.tagline}
+                  </p>
                 </div>
 
                 <div className="space-y-5">
