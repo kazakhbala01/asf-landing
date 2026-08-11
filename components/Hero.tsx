@@ -89,7 +89,7 @@ export default function Hero() {
               height={1672}
               priority
               sizes="100vw"
-              className="-mx-4 h-[460px] w-[calc(100%+2rem)] max-w-none object-cover object-[58%_top] [mask-image:linear-gradient(180deg,transparent_0%,#000_16%)] sm:-mx-6 sm:h-[540px] sm:w-[calc(100%+3rem)]"
+              className="-mx-4 h-[460px] w-[calc(100%+2rem)] max-w-none object-cover object-[58%_30%] [mask-image:linear-gradient(180deg,transparent_0%,#000_16%)] sm:-mx-6 sm:h-[540px] sm:w-[calc(100%+3rem)]"
             />
           </div>
         </div>
