@@ -118,9 +118,10 @@ export default function Benefits() {
 
         {/* бенто: 2 колонки на мобильном, 3 на десктопе; крупные карточки шире */}
         <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-3 lg:gap-4">
-          {/* 01 — фото канистры целиком (мобильный: под текстом, десктоп: справа) */}
-          <article className="reveal col-span-2 flex flex-col overflow-hidden rounded-2xl border border-line bg-paper sm:flex-row sm:items-center lg:col-span-2">
-            <div className="flex flex-1 flex-col p-4 sm:p-6 lg:p-7">
+          {/* 01 — фото заполняет карточку справа, слева растворяется маской,
+              поэтому края фото не видны */}
+          <article className="reveal relative col-span-2 overflow-hidden rounded-2xl border border-line bg-paper lg:col-span-2">
+            <div className="relative z-10 flex max-w-[60%] flex-col p-4 sm:max-w-[58%] sm:p-6 lg:p-7">
               <span className="text-[24px] font-extrabold leading-none tabular-nums text-amber sm:text-[28px]">
                 01
               </span>
@@ -138,10 +139,9 @@ export default function Benefits() {
             <Image
               src="/photos/benefit-foam.jpg"
               alt="ASF Active Foam Pink в пене"
-              width={1183}
-              height={912}
-              sizes="(min-width: 1024px) 380px, 60vw"
-              className="mx-auto h-auto w-[62%] max-w-[260px] shrink-0 pb-4 sm:mx-0 sm:w-[36%] sm:max-w-none sm:pb-0"
+              fill
+              sizes="(min-width: 1024px) 380px, 45vw"
+              className="!left-auto right-0 !h-full !w-[44%] object-cover object-center [mask-image:linear-gradient(90deg,transparent_0%,#000_30%)] sm:!w-[42%]"
             />
           </article>
 
