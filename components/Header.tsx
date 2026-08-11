@@ -17,17 +17,17 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#141416]/95 text-white backdrop-blur-sm">
-      <div className="mx-auto flex h-16 max-w-[85rem] items-center justify-between px-4 sm:px-6">
-        <a href="#" className="flex items-center gap-3">
+      <div className="mx-auto flex h-12 max-w-[85rem] items-center justify-between px-4 sm:h-14 sm:px-6 lg:h-16">
+        <a href="#" className="flex items-center gap-2.5 sm:gap-3">
           <Image
             src="/logo.png"
             alt="ASF — Astana Soap Factory"
             width={44}
             height={44}
             priority
-            className="h-11 w-11"
+            className="h-8 w-8 sm:h-10 sm:w-10 lg:h-11 lg:w-11"
           />
-          <span className="text-[13px] font-extrabold uppercase leading-[1.2] tracking-caps">
+          <span className="text-[11px] font-extrabold uppercase leading-[1.15] tracking-caps sm:text-[13px]">
             Astana
             <br />
             Soap
