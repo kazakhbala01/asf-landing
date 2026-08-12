@@ -4,7 +4,7 @@ const numbers = [
   { value: "6 лет", label: "в производстве химической продукции" },
   { value: "2 года", label: "в профессиональной автохимии" },
   { value: "3000+", label: "кг продукции в сутки" },
-  { value: "14", label: "продуктов собственной разработки" },
+  { value: "16+", label: "продуктов собственной разработки" },
 ];
 
 export default function AboutCompany() {
@@ -23,29 +23,6 @@ export default function AboutCompany() {
               ASTANA SOAP FACTORY
             </h2>
 
-            {/* мобильный вариант: компактная карточка основателя сразу под заголовком */}
-            <div className="mt-5 flex items-center gap-4 border border-line bg-paper p-3 lg:hidden">
-              <Image
-                src="/photos/founder.jpg"
-                alt="Руслан — основатель Astana Soap Factory"
-                width={477}
-                height={647}
-                sizes="120px"
-                className="h-[124px] w-[92px] shrink-0 object-cover object-top"
-              />
-              <div>
-                <p className="text-[13px] font-bold tracking-caps uppercase">
-                  Руслан
-                </p>
-                <p className="text-[11px] font-semibold tracking-caps uppercase text-muted">
-                  основатель ASF
-                </p>
-                <p className="mt-2 text-[13px] leading-snug text-muted">
-                  Пилот гражданской авиации, командир Airbus A320. Основал
-                  производство в 2020 году.
-                </p>
-              </div>
-            </div>
             <p className="mt-6 max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px]">
               Astana Soap Factory — казахстанский производитель химической
               продукции с собственным производством в Астане. Компания работает
@@ -59,9 +36,10 @@ export default function AboutCompany() {
             </p>
             <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px]">
               <span className="font-bold text-ink">Руслан — основатель ASF.</span>{" "}
-              Пилот гражданской авиации, командир Airbus A320. В основу компании
-              заложил принципы, которым следует в авиации: точность,
-              ответственность, контроль качества и стабильность результата.
+              Пилот гражданской авиации, командир Airbus A320 с опытом работы
+              в Air Astana. В основу компании заложил принципы, которым следует
+              в авиации: точность, ответственность, контроль качества
+              и стабильность результата.
             </p>
             <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px]">
               Сегодня ASF — это собственное производство, профессиональная

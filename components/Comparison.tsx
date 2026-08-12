@@ -62,14 +62,14 @@ export default function Comparison() {
                 {r.label}
               </p>
               <div className="flex items-start gap-2 bg-amber/10 px-3 py-2.5">
-                <span className="mt-0.5 text-[10px] font-extrabold tracking-caps text-amber-dark">
+                <span className="mt-0.5 shrink-0 text-[10px] font-extrabold tracking-caps text-amber-dark">
                   ASF
                 </span>
                 <p className="flex-1 text-[13px] font-semibold leading-snug">{r.asf}</p>
               </div>
               <div className="flex items-start gap-2 px-3 py-2.5">
-                <span className="mt-0.5 text-[10px] font-bold tracking-caps text-muted">
-                  ДР.
+                <span className="mt-0.5 shrink-0 text-[10px] font-bold tracking-caps text-muted">
+                  ДРУГИЕ
                 </span>
                 <p className="flex-1 text-[13px] leading-snug text-muted">{r.others}</p>
               </div>

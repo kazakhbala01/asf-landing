@@ -365,7 +365,7 @@ export default function Catalog() {
             </p>
             <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               {[
-                { v: String(products.length), l: "продуктов" },
+                { v: "16+", l: "продуктов" },
                 { v: "5", l: "линеек" },
                 { v: "1:200", l: "разведение" },
               ].map((s) => (
