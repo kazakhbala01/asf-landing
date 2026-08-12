@@ -23,7 +23,28 @@ export default function AboutCompany() {
               ASTANA SOAP FACTORY
             </h2>
 
-            <p className="mt-6 max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px]">
+            {/* мобильный вариант: фото слева, текст об основателе справа */}
+            <div className="mt-5 flex gap-4 border border-line bg-paper p-3 lg:hidden">
+              <Image
+                src="/photos/founder.jpg"
+                alt="Руслан — основатель Astana Soap Factory"
+                width={477}
+                height={647}
+                sizes="130px"
+                className="h-fit w-[118px] shrink-0"
+              />
+              <p className="text-[13px] leading-snug text-muted">
+                <span className="font-bold text-ink">
+                  Руслан — основатель ASF.
+                </span>{" "}
+                Пилот гражданской авиации, командир Airbus A320 с опытом работы
+                в Air Astana. В основу компании заложил принципы, которым
+                следует в авиации: точность, ответственность, контроль качества
+                и стабильность результата.
+              </p>
+            </div>
+
+            <p className="mt-5 max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px]">
               Astana Soap Factory — казахстанский производитель химической
               продукции с собственным производством в Астане. Компания работает
               в сфере производства химии с 2020 года. Мы начинали с бытовой
@@ -34,29 +55,6 @@ export default function AboutCompany() {
               Сегодня за нами — 6 лет опыта в производстве химической продукции
               и 2 года в профессиональной автохимии.
             </p>
-            {/* мобильный вариант: карточка с фото сверху и подписью под ним */}
-            <figure className="mt-6 border border-line bg-paper p-3 lg:hidden">
-              <Image
-                src="/photos/founder.jpg"
-                alt="Руслан — основатель Astana Soap Factory"
-                width={477}
-                height={647}
-                sizes="100vw"
-                className="h-auto w-full"
-              />
-              <figcaption className="px-1 pb-1 pt-3">
-                <p className="text-[14px] leading-relaxed text-muted">
-                  <span className="font-bold text-ink">
-                    Руслан — основатель ASF.
-                  </span>{" "}
-                  Пилот гражданской авиации, командир Airbus A320 с опытом
-                  работы в Air Astana. В основу компании заложил принципы,
-                  которым следует в авиации: точность, ответственность,
-                  контроль качества и стабильность результата.
-                </p>
-              </figcaption>
-            </figure>
-
             <p className="mt-4 hidden max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px] lg:block">
               <span className="font-bold text-ink">Руслан — основатель ASF.</span>{" "}
               Пилот гражданской авиации, командир Airbus A320 с опытом работы
