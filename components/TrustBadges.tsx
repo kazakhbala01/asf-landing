@@ -21,7 +21,7 @@ const badges = [
   },
   {
     title: "Сильная моющая способность",
-    text: "Активная пена отрывает грязь без ручной мойки",
+    text: "Активная пена отделяет грязь от поверхности без ручной мойки",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 sm:h-9 sm:w-9">
         <path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z" strokeLinejoin="round" />
