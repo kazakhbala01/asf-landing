@@ -10,23 +10,27 @@ export default function ContactSection() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Здравствуйте! Меня зовут ${name || "—"}. ${message || "Хочу получить консультацию по автохимии ASF."} Мой телефон: ${phone || "—"}.`;
+    const text = `Здравствуйте! Хочу получить бесплатный расчёт экономики для своей автомойки. Меня зовут ${name || "—"}. ${message || ""} Мой телефон: ${phone || "—"}.`;
     window.open(waLink(text), "_blank", "noopener,noreferrer");
   };
 
   return (
     <section id="contacts" className="border-b border-line">
       <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 sm:py-14 lg:py-20">
-        <div className="reveal mb-10">
+        <div className="reveal mb-8 sm:mb-10">
           <div className="mb-4 flex items-center gap-3">
             <span className="h-0.5 w-8 bg-amber" />
             <span className="text-[11px] font-semibold tracking-caps uppercase text-muted">
-              Контакты
+              Бесплатный расчёт
             </span>
           </div>
-          <h2 className="text-[1.75rem] font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            ОСТАВЬТЕ ЗАЯВКУ
+          <h2 className="max-w-3xl text-[1.75rem] font-extrabold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
+            Сколько денег ваша автомойка теряет каждый месяц?
           </h2>
+          <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-muted sm:mt-4 sm:text-[16px] lg:text-[17px]">
+            Получите бесплатный расчёт экономики и узнайте себестоимость одной
+            мойки, реальную прибыль и возможные точки роста.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
@@ -72,7 +76,7 @@ export default function ContactSection() {
               type="submit"
               className="mt-2 bg-amber px-8 py-4 text-[13px] font-bold tracking-caps uppercase text-ink transition-colors hover:bg-amber-dark"
             >
-              Отправить в WhatsApp
+              Получить бесплатный расчёт
             </button>
             <p className="text-[12px] leading-snug text-muted">
               Заявка откроется в WhatsApp с готовым сообщением — просто нажмите

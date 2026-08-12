@@ -34,6 +34,18 @@ export default function AboutCompany() {
               Сегодня за нами — 6 лет опыта в производстве химической продукции
               и 2 года в профессиональной автохимии.
             </p>
+            {/* мобильный вариант: фото основателя, текст о нём — сразу под фото */}
+            <figure className="mt-6 w-full max-w-[280px] border border-line bg-paper p-3 lg:hidden">
+              <Image
+                src="/photos/founder.jpg"
+                alt="Руслан — основатель Astana Soap Factory"
+                width={477}
+                height={647}
+                sizes="280px"
+                className="h-auto w-full"
+              />
+            </figure>
+
             <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-muted sm:text-[16px]">
               <span className="font-bold text-ink">Руслан — основатель ASF.</span>{" "}
               Пилот гражданской авиации, командир Airbus A320 с опытом работы
