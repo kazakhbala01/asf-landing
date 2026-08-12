@@ -107,7 +107,7 @@ export default function Benefits() {
             </span>
           </div>
           <h2 className="text-[1.85rem] font-extrabold leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
-            С ASF ВАША АВТОМОЙКА
+            С <span className="text-amber-dark">ASF</span> ВАША АВТОМОЙКА
             <br className="hidden sm:block" /> СМОЖЕТ ЗАРАБАТЫВАТЬ БОЛЬШЕ
           </h2>
           <p className="mt-2.5 max-w-xl text-[14px] leading-snug text-muted sm:mt-3 sm:text-[16px]">
