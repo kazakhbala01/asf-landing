@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { waLink, contacts } from "@/lib/products";
+import { trackEvent } from "@/lib/analytics";
 
 const benefits = [
   "Производство в Казахстане",
@@ -9,7 +10,15 @@ const benefits = [
   "Поддержка технолога",
 ];
 
-export default function Hero() {
+export default function Hero({
+  title = "УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ",
+  highlight = "В 2–3 РАЗА",
+  subtitle = "и выведите бизнес на новый уровень",
+}: {
+  title?: string;
+  highlight?: string;
+  subtitle?: string;
+}) {
   return (
     <section className="relative overflow-hidden bg-soft">
       {/* Десктоп: фото справа целиком, левый край растворяется маской в фон */}
@@ -52,19 +61,19 @@ export default function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-8 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pt-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
           <h1 className="text-[2.55rem] font-extrabold leading-[1.05] tracking-tight text-ink sm:text-[3.1rem] lg:text-[2.3rem] xl:text-[2.8rem]">
-            УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ{" "}
+            {title}{" "}
             <br className="hidden lg:block" />
-            <span className="whitespace-nowrap text-amber-dark">В 2–3 РАЗА</span>
+            <span className="whitespace-nowrap text-amber-dark">{highlight}</span>
           </h1>
           <p className="mx-auto mt-3 max-w-sm text-[15px] font-semibold leading-snug text-ink/70 sm:mt-4 sm:max-w-md sm:text-[18px] lg:mx-0 lg:text-[18px] xl:text-[20px]">
-            и выведите бизнес на новый уровень
+            {subtitle}
           </p>
           {/* небольшая горизонтальная линия после заголовка — только мобильная версия */}
           <span className="mx-auto mt-5 block h-[3px] w-14 bg-amber lg:hidden" />
 
           {/* десктоп: три кнопки + галочки */}
           <div className="mt-8 hidden flex-wrap items-center gap-3 lg:flex">
-            <a
+            
               href={waLink("Здравствуйте! Пришлите, пожалуйста, оптовый прайс ASF.")}
               target="_blank"
               rel="noopener noreferrer"
@@ -72,7 +81,7 @@ export default function Hero() {
             >
               Получить прайс
             </a>
-            <a
+            
               href={waLink("Здравствуйте! Хочу получить бесплатный образец автохимии ASF.")}
               target="_blank"
               rel="noopener noreferrer"
@@ -80,7 +89,7 @@ export default function Hero() {
             >
               Бесплатный образец
             </a>
-            <a
+            
               href={contacts.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
