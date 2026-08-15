@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { waLink, contacts } from "@/lib/products";
-import { trackEvent } from "@/lib/analytics";
 
 const benefits = [
   "Производство в Казахстане",
