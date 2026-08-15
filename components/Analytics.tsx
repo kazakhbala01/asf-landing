@@ -9,7 +9,7 @@ import Script from "next/script";
  * TODO: запросить ID у клиента; Bitrix24-виджет и онлайн-чат добавить сюда же.
  */
 export default function Analytics() {
-  const ga = process.env.NEXT_PUBLIC_GA_ID;
+  const ga = process.env.NEXT_PUBLIC_GA_ID || "G-XZVXBNRFGL";
   const ym = process.env.NEXT_PUBLIC_YM_ID;
   const pixel = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
