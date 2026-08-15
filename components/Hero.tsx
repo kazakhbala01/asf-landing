@@ -66,7 +66,7 @@ export default function Hero({
           <span className="mx-auto mt-5 block h-[3px] w-14 bg-amber lg:hidden" />
 
           <div className="mt-8 hidden flex-wrap items-center gap-3 lg:flex">
-            
+            <a
               href={waLink("Здравствуйте! Пришлите, пожалуйста, оптовый прайс ASF.")}
               target="_blank"
               rel="noopener noreferrer"
@@ -74,7 +74,7 @@ export default function Hero({
             >
               Получить прайс
             </a>
-            
+            <a
               href={waLink("Здравствуйте! Хочу получить бесплатный образец автохимии ASF.")}
               target="_blank"
               rel="noopener noreferrer"
@@ -82,7 +82,7 @@ export default function Hero({
             >
               Бесплатный образец
             </a>
-            
+            <a
               href={contacts.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
