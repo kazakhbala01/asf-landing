@@ -20,7 +20,6 @@ export default function Hero({
 }) {
   return (
     <section className="relative overflow-hidden bg-soft">
-      {/* Десктоп: фото справа целиком, левый край растворяется маской в фон */}
       <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[66%] items-center lg:flex">
         <Image
           src="/photos/hero-foam.jpg"
@@ -33,8 +32,6 @@ export default function Hero({
         />
       </div>
 
-      {/* лого на месте прежнего navbar — только мобильная/планшетная версия;
-          снизу разделитель, отделяющий лого от заголовка */}
       <div className="relative z-10 mx-auto flex max-w-[85rem] items-center justify-center border-b border-line px-4 py-4 sm:px-6 sm:py-5 lg:hidden">
         <a href="#" className="flex items-center gap-3">
           <Image
@@ -45,7 +42,6 @@ export default function Hero({
             priority
             className="h-12 w-12 sm:h-14 sm:w-14"
           />
-          {/* вертикальная линия между лого и текстом */}
           <span className="h-9 w-px bg-line sm:h-11" />
           <span className="text-[13px] font-extrabold uppercase leading-[1.15] tracking-caps text-ink sm:text-[15px]">
             Astana
@@ -67,10 +63,8 @@ export default function Hero({
           <p className="mx-auto mt-3 max-w-sm text-[15px] font-semibold leading-snug text-ink/70 sm:mt-4 sm:max-w-md sm:text-[18px] lg:mx-0 lg:text-[18px] xl:text-[20px]">
             {subtitle}
           </p>
-          {/* небольшая горизонтальная линия после заголовка — только мобильная версия */}
           <span className="mx-auto mt-5 block h-[3px] w-14 bg-amber lg:hidden" />
 
-          {/* десктоп: три кнопки + галочки */}
           <div className="mt-8 hidden flex-wrap items-center gap-3 lg:flex">
             
               href={waLink("Здравствуйте! Пришлите, пожалуйста, оптовый прайс ASF.")}
@@ -113,8 +107,6 @@ export default function Hero({
             ))}
           </ul>
 
-          {/* мобильный: фото ниже текста; верх обрезан ~15%,
-              fade сверху на входе и снизу — в самом конце фотографии */}
           <div className="relative -mx-4 mt-5 aspect-[941/1421] w-[calc(100%+2rem)] overflow-hidden sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden">
             <Image
               src="/photos/hero-foam-mobile.jpg"
