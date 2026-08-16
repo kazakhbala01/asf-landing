@@ -13,6 +13,7 @@ export default function Hero({
   title = "УВЕЛИЧЬТЕ ПРИБЫЛЬ ВАШЕЙ АВТОМОЙКИ",
   highlight = "В 2–3 РАЗА",
   subtitle = "и выведите бизнес на новый уровень",
+  compact = false
 }: {
   title?: string;
   highlight?: string;
