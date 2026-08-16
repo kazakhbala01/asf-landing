@@ -17,6 +17,7 @@ export default function Hero({
   title?: string;
   highlight?: string;
   subtitle?: string;
+  compact?: boolean;
 }) {
   return (
     <section className="relative overflow-hidden bg-soft">
