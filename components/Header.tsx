@@ -93,6 +93,19 @@ export default function Header() {
               {item.label}
             </a>
           ))}
+          {/* магазин на Kaspi — внешняя ссылка, поэтому выделена акцентом */}
+          <a
+            href={contacts.marketplaces[0].href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="flex items-center justify-between gap-2 border-b border-white/10 px-6 py-4 text-sm font-bold tracking-caps uppercase text-amber"
+          >
+            Магазин на Kaspi
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+              <path d="M7 17L17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </nav>
       )}
     </header>
