@@ -4,7 +4,11 @@ import Analytics from "@/components/Analytics";
 import FloatingActions from "@/components/FloatingActions";
 import "./globals.css";
 
+const SITE = "https://www.astanasoapfactory.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
+  alternates: { canonical: "/" },
   title: "ASF — Astana Soap Factory | Профессиональная автохимия",
   description:
     "Astana Soap Factory — производитель профессиональной автохимии в Казахстане: автошампуни для бесконтактной мойки, полироли для салона, чернитель шин, очиститель двигателя. Собственное производство в Астане.",
@@ -32,6 +36,9 @@ const orgSchema = {
   "@type": "Organization",
   name: "Astana Soap Factory",
   alternateName: "ASF",
+  url: SITE,
+  logo: `${SITE}/logo.png`,
+  image: `${SITE}/logo.png`,
   description:
     "Казахстанский производитель профессиональной автохимии: автошампуни для бесконтактной мойки, полироли, чернитель шин, очиститель двигателя.",
   foundingDate: "2020",

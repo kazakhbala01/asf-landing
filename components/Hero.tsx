@@ -34,27 +34,6 @@ export default function Hero({
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-[85rem] items-center justify-center border-b border-line px-4 py-4 sm:px-6 sm:py-5 lg:hidden">
-        <a href="#" className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt="ASF — Astana Soap Factory"
-            width={64}
-            height={64}
-            priority
-            className="h-12 w-12 sm:h-14 sm:w-14"
-          />
-          <span className="h-9 w-px bg-line sm:h-11" />
-          <span className="text-[13px] font-extrabold uppercase leading-[1.15] tracking-caps text-ink sm:text-[15px]">
-            Astana
-            <br />
-            Soap
-            <br />
-            Factory
-          </span>
-        </a>
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-[85rem] px-4 pb-0 pt-6 sm:px-6 sm:pt-8 lg:flex lg:min-h-[calc(100vh-200px)] lg:items-center lg:py-16 lg:pt-16">
         <div className="text-center lg:max-w-[33%] lg:text-left">
           <h1 className={`font-extrabold leading-[1.05] tracking-tight text-ink sm:text-[3.1rem] lg:text-[2.3rem] xl:text-[2.8rem] ${compact ? "text-[2.05rem]" : "text-[2.55rem]"}`}>
