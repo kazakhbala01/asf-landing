@@ -61,3 +61,16 @@ body {
     transform: none;
   }
 }
+
+/* шапка sticky и всегда видна — отступ, чтобы якорь не уезжал под неё */
+section[id],
+[id]:target {
+  scroll-margin-top: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  section[id],
+  [id]:target {
+    scroll-margin-top: 4.5rem;
+  }
+}
