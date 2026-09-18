@@ -1,0 +1,40 @@
+name: Запрос доступа к репозиторию
+description: Нужны права на внесение изменений в сайт ASF
+title: "Запрос доступа: "
+labels: ["доступ"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Заполните форму — владелец репозитория выдаст доступ.
+        Ваш ник на GitHub указывать не нужно: он виден автоматически как автор этого обращения.
+  - type: input
+    id: kto
+    attributes:
+      label: Кто вы
+      description: Имя и роль в проекте
+      placeholder: Асхат, верстальщик
+    validations:
+      required: true
+  - type: textarea
+    id: zadacha
+    attributes:
+      label: Что планируете менять
+      placeholder: Добавить страницу для оптовиков, поправить тексты в каталоге
+    validations:
+      required: true
+  - type: dropdown
+    id: uroven
+    attributes:
+      label: Какой доступ нужен
+      options:
+        - Write — менять файлы и пушить (для разработчика)
+        - Read — только смотреть и комментировать (для клиента, менеджера)
+    validations:
+      required: true
+  - type: input
+    id: kontakt
+    attributes:
+      label: Связь
+      description: WhatsApp, Telegram или почта — чтобы не переписываться только здесь
+      placeholder: "+7 7XX XXX XX XX"
