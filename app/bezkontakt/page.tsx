@@ -15,6 +15,7 @@ import Quality from "@/components/Quality";
 import AboutCompany from "@/components/AboutCompany";
 import Testimonials from "@/components/Testimonials";
 import CtaBand from "@/components/CtaBand";
+import Articles from "@/components/Articles";
 import Faq from "@/components/Faq";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -43,6 +44,7 @@ export default function PenaPage() {
         <AboutCompany />
         <Testimonials />
         <Geography />
+        <Articles />
         <CtaBand />
         <Faq />
         <ContactSection />

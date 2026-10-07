@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { articles } from "@/lib/articles";
 
 const SITE = "https://www.astanasoapfactory.com";
 
@@ -13,6 +14,7 @@ const routes = [
   "/dvigatel",
   "/vosk",
   "/privacy",
+  ...articles.map((a) => `/stati/${a.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

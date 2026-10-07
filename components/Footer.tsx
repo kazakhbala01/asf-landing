@@ -8,7 +8,8 @@ const companyLinks = [
   { href: "#about", label: "О компании" },
 ];
 
-export default function Footer() {
+/** base="/" — для страниц без секций главной (статьи, политика): якоря ведут на главную */
+export default function Footer({ base = "" }: { base?: string }) {
   return (
     <footer className="bg-ink text-white">
       <div className="mx-auto max-w-[85rem] px-4 py-12 sm:px-6">
@@ -58,7 +59,7 @@ export default function Footer() {
                 {categories.map((cat) => (
                   <li key={cat.id}>
                     <a
-                      href="#products"
+                      href={`${base}#products`}
                       className="text-[14px] text-white/80 transition-colors hover:text-amber"
                     >
                       {cat.title}
@@ -66,7 +67,7 @@ export default function Footer() {
                   </li>
                 ))}
                 <li>
-                  <a href="#products" className="text-[14px] text-white/80 transition-colors hover:text-amber">
+                  <a href={`${base}#products`} className="text-[14px] text-white/80 transition-colors hover:text-amber">
                     Вся продукция
                   </a>
                 </li>
@@ -80,7 +81,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 {companyLinks.map((l) => (
                   <li key={l.href}>
-                    <a href={l.href} className="text-[14px] text-white/80 transition-colors hover:text-amber">
+                    <a href={`${base}${l.href}`} className="text-[14px] text-white/80 transition-colors hover:text-amber">
                       {l.label}
                     </a>
                   </li>

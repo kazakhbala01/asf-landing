@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <Header />
+      <Header base="/" />
       <main className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
           Политика конфиденциальности
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           </p>
         </div>
       </main>
-      <Footer />
+      <Footer base="/" />
     </>
   );
 }

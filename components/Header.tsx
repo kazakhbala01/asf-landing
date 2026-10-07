@@ -12,13 +12,14 @@ const nav = [
   { href: "#contacts", label: "Контакты" },
 ];
 
-export default function Header() {
+/** base="/" — для страниц без секций главной (статьи, политика): якоря ведут на главную */
+export default function Header({ base = "" }: { base?: string }) {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#141416]/95 text-white backdrop-blur-sm">
       <div className="mx-auto flex h-12 max-w-[85rem] items-center justify-between px-4 sm:h-14 sm:px-6 lg:h-16">
-        <a href="#" className="flex items-center gap-2.5 sm:gap-3">
+        <a href={base || "#"} className="flex items-center gap-2.5 sm:gap-3">
           <Image
             src="/logo.png"
             alt="ASF — Astana Soap Factory"
@@ -40,7 +41,7 @@ export default function Header() {
           {nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${base}${item.href}`}
               className="relative text-[13px] font-semibold tracking-caps text-white uppercase transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-0 after:bg-amber after:transition-[width] after:duration-200 hover:text-amber hover:after:w-full"
             >
               {item.label}
@@ -61,7 +62,7 @@ export default function Header() {
             WhatsApp
           </a>
           <a
-            href="#products"
+            href={`${base}#products`}
             className="hidden bg-amber px-6 py-3 text-[12px] font-bold tracking-caps uppercase text-ink transition-colors hover:bg-amber-dark sm:flex sm:items-center sm:gap-2"
           >
             Каталог
@@ -86,7 +87,7 @@ export default function Header() {
           {nav.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${base}${item.href}`}
               onClick={() => setOpen(false)}
               className="block border-b border-white/10 px-6 py-4 text-sm font-medium tracking-caps uppercase"
             >
